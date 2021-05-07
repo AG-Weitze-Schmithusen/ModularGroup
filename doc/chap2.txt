@@ -395,7 +395,7 @@
   [33X[0;0YFor  a  modular subgroup [3XG[103X and a natural number [3XN[103X this method calculates the
   so-called [13Xdeficiency[113X of [3XG[103X from being a congruence subgroup of level [3XN[103X.[133X
   [33X[0;0YThe  deficiency  of  a  finite-index subgroup [22XΓ[122X of [22XSL_2(ℤ)[122X was introduced in
-  [Wei15].  It  is  defined  as  the index [22X[Γ(N) : Γ(N) ∩ Γ][122X where [22XΓ(N)[122X is the
+  [WS15].  It  is  defined  as  the  index [22X[Γ(N) : Γ(N) ∩ Γ][122X where [22XΓ(N)[122X is the
   principal congruence subgroup of level [22XN[122X.[133X
   
   [4X[32X  Example  [32X[104X

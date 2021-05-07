@@ -1,15 +1,19 @@
 name: ModularGroup
 version: "1.0.0"
-date: 2020-04-08
+date: 2021-05-07
 description: |
     Finite-index subgroups of (P)SL(2,Integers)
 
 authors:
     - name: Luca Leon Junk
       url: http://www.math.uni-sb.de/ag/weitze/
+    - name: Gabriela Weitze-Schmithüsen
+      url: http://www.math.uni-sb.de/ag/weitze/
 
 maintainers:
     - name: Luca Leon Junk
+      url: http://www.math.uni-sb.de/ag/weitze/
+    - name: Gabriela Weitze-Schmithüsen
       url: http://www.math.uni-sb.de/ag/weitze/
 
 GAP: "4.5.3"
@@ -30,13 +34,13 @@ suggested-pkgs:
       version: ">=1.1.1"
       url: "https://gap-packages.github.io/congruence"
 
-www: https://le-on.github.io/ModularGroup
+www: https://ag-weitze-schmithusen.github.io/ModularGroup
 readme: README.md
-packageinfo: https://le-on.github.io/ModularGroup/PackageInfo.g
+packageinfo: https://ag-weitze-schmithusen.github.io/ModularGroup/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/le-on/ModularGroup/releases/download/v1.0.0/ModularGroup-1.0.0.tar.gz
+      url: https://github.com/ag-weitze-schmithusen/ModularGroup/releases/download/v1.0.0/ModularGroup-1.0.0.tar.gz
 
 abstract: |
     This package provides a collection of algorithms for computing with   finite-index subgroups of (P)SL(2,Z).
@@ -48,28 +52,29 @@ keywords: |
     PSL(2,Z), PSL2Z, SL(2,Z), SL2Z, modular group, congruence subgroup.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>Jun20</span>]   <b class='BibAuthor'>Junk, L. L.</b>,
+    [<span class='BibKey'>JW21</span>]   <b class='BibAuthor'>Junk, L. L. and Weitze-Schmithüsen, G.</b>,
      <i class='BibTitle'>ModularGroup, Finite-index subgroups of (P)SL(2,Integers),
              Version 1.0.0</i>
-     (<span class='BibYear'>2020</span>)<br />
+     (<span class='BibYear'>2021</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://le-on.github.io/ModularGroup">https://le-on.github.io/ModularGroup</a></span>.
+    <span class='BibHowpublished'><a href="https://ag-weitze-schmithusen.github.io/ModularGroup">https://ag-weitze-schmithusen.github.io/ModularGroup</a></span>.
     </p>
     
 
 bibtex: |
     @misc{ ModularGroup1.0.0,
-      author =           {Junk, L. L.},
+      author =           {Junk, L. L. and Weitze-Schmith{\"u}sen, G.},
       title =            {{ModularGroup},      Finite-index     subgroups     of
                           (P)SL(2,Integers), {V}ersion 1.0.0},
-      month =            {Apr},
-      year =             {2020},
+      month =            {May},
+      year =             {2021},
       note =             {GAP package},
-      howpublished =     {\href           {https://le-on.github.io/ModularGroup}
-                          {\texttt{https://le-on.github.io/}\discretionary
+      howpublished =     {\href
+                          {https://ag-weitze-schmithusen.github.io/ModularGroup}
+                          {\texttt{https://ag-weitze-schmithusen.github.io/}\discretionary
                           {}{}{}\texttt{ModularGroup}}},
       keywords =         {PSL(2,Z);   PSL2Z;   SL(2,Z);   SL2Z;  modular  group;
                           congruence subgroup},
-      printedkey =       {Jun20}
+      printedkey =       {JW21}
     }
 

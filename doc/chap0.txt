@@ -9,10 +9,12 @@
                                  Version 1.0.0
   
   
-                                 08 April 2020
+                                  07 May 2021
   
   
                                   Luca L. Junk
+  
+                          Gabriela Weitze-Schmithüsen
   
   
   
@@ -25,10 +27,19 @@
                 [33X[0;14YD-66041 Saarbrücken[133X
   
   
+  Gabriela Weitze-Schmithüsen
+      Email:    [7Xmailto:weitze@math.uni-sb.de[107X
+      Homepage: [7Xhttp://www.math.uni-sb.de/ag/weitze/[107X
+      Address:  [33X[0;14YAG Weitze-Schmithüsen[133X
+                [33X[0;14YFR 6.1 Mathematik[133X
+                [33X[0;14YUniversität des Saarlandes[133X
+                [33X[0;14YD-66041 Saarbrücken[133X
+  
+  
   
   -------------------------------------------------------
   [1XCopyright[101X
-  [33X[0;0Y© 2020 by Luca L. Junk[133X
+  [33X[0;0Y© 2021 by Luca L. Junk and Gabriela Weitze-Schmithüsen[133X
   
   
   -------------------------------------------------------
