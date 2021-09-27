@@ -1,6 +1,6 @@
 name: ModularGroup
 version: "1.0.0"
-date: 2021-05-07
+date: 2021-09-27
 description: |
     Finite-index subgroups of (P)SL(2,Integers)
 
@@ -66,7 +66,7 @@ bibtex: |
       author =           {Junk, L. L. and Weitze-Schmith{\"u}sen, G.},
       title =            {{ModularGroup},      Finite-index     subgroups     of
                           (P)SL(2,Integers), {V}ersion 1.0.0},
-      month =            {May},
+      month =            {Sep},
       year =             {2021},
       note =             {GAP package},
       howpublished =     {\href
