@@ -428,14 +428,15 @@ InstallMethod(\in, "for a finite-index subgroup of SL(2,Z)", [IsMatrix, IsModula
   return IsElementOf(A, G);
 end);
 
-InstallMethod(IsSubset, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(H, G)
-  local gens, result, g;
+InstallMethod(IsSubgroup, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(H, G)
+  local gens, g;
   gens := MatrixGeneratorsOfGroup(H);
-  result := true;
   for g in gens do
-    result := result and (g in G);
+    if not g in G then
+      return false
+    fi;
   od;
-  return result;
+  return true;
 end);
 
 InstallMethod(\=, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(G, H)
