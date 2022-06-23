@@ -433,7 +433,7 @@ InstallMethod(IsSubgroup, "for two finite-index subgroups of SL(2,Z)", [IsModula
   gens := MatrixGeneratorsOfGroup(H);
   for g in gens do
     if not g in G then
-      return false
+      return false;
     fi;
   od;
   return true;
