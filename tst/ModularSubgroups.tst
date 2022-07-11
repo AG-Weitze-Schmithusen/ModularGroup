@@ -23,7 +23,7 @@ S*T^-2*S*T^2*S*T^-1*S, S*T^-2*S*T^3*S*T^-1, S*T^-2*S*T^4*S, T*(T*S*T^-1*S)^2, T^
 T^-1*S*T^4*S*T^-2, T^-2*S*T^2*S*T^-1*S*T, T^-2*S*T^2*S*T^-2*S, S*T*(T*S*T^-1*S)^2, S*T^2*S*T^-1*S*T*S*T^-2, S*T^2*S*T^-1*S*T^3*S,
 S*T^3*S*T^-2*S*T*S, S*T^-1*S*T*S*T^-4*S, S*T^-1*(T^-1*S*T*S)^2, S*T^-2*S*T^2*S*T^-1*S*T, S*T^-2*S*T^3*S*T^-1*S, T^-2*S*T^2*S*T^-1*S*T*S,
 S*T^2*S*T^-1*S*T*S*T^-2*S ]
-gap> GeneralizedLevel(G);
+gap> WohlfahrtLevel(G);
 420
 gap> GeneratorsOfGroup(G);
 [ S^-2, T^-6, T*S*T^-3*S^-1*T*S^-1, S*T^7*S^-1, T^-2*(S*T)^2*S^-1*T^-3, T*S*T^-1*(S*T)^2*S^-1*T^-1*S^-1*T*S^-1, T*S*T^-1*S*T^4*S^-1*T^-2,
@@ -153,6 +153,8 @@ gap> RightCosetRepresentatives(G);
 [ <identity ...>, S, S^-1, T, S^2, S*T, S^-1*T, T*S, T*S^-1, S^2*T, S*T*S,
   S*T*S^-1 ]
 gap> GeneralizedLevel(G);
+4
+gap> WohlfahrtLevel(G);
 2
 gap> GeneratorsOfGroup(G);
 [ T^-2, S*T^-2*S^-1 ]
@@ -176,8 +178,6 @@ gap> Deficiency(G, 2);
 2
 gap> Deficiency(G, 4);
 1
-gap> Projection(G);
-<projective modular subgroup of index 6>
 
 
 gap> G := ModularSubgroup((1,2)(3,4)(5,6)(7,8)(9,10),(1,4)(2,5,9,10,8)(3,7,6));;
@@ -190,6 +190,8 @@ gap> Cusps(G);
 gap> RightCosetRepresentatives(G);
 [ <identity ...>, S, T, S*T, S*T^-1, T*S, S*T*S, S*T^2, S*T^-1*S, S*T^-2 ]
 gap> GeneralizedLevel(G);
+30
+gap> WohlfahrtLevel(G);
 30
 gap> GeneratorsOfGroup(G);
 [ S^-2, T^-2, S*T*S*T^-1*S^-1*T*S^-1, (S*T^2)^2*S^-1, S*T^5*S^-1 ]
