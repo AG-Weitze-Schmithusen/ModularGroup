@@ -261,7 +261,7 @@ InstallMethod(IsCongruence, "for a modular subgroup", [IsModularSubgroup], funct
   t := TAction(G);
   r := s^2*t*s^-1*t;
 
-  L := GeneralizedLevel(G);
+  L := WohlfahrtLevel(G);
   if IsElementOf([[-1,0],[0,-1]], G) then
     N := L;
   else
