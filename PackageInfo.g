@@ -8,12 +8,12 @@ SetPackageInfo( rec(
 
 PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
-Version := "1.0.0",
-Date := "22/03/2022", ## dd/mm/yyyy
+Version := "2.0.0",
+Date := "14/07/2022", ## dd/mm/yyyy
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "1.0.0">
-##  <!ENTITY RELEASEDATE "03 March 2022">
+##  <!ENTITY VERSION "2.0.0">
+##  <!ENTITY RELEASEDATE "14 July 2022">
 ##  <!ENTITY RELEASEYEAR "2022">
 ##  <#/GAPDoc>
 
@@ -25,7 +25,7 @@ SourceRepository := rec(
     URL := Concatenation( "https://github.com/ag-weitze-schmithusen/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-SupportEmail := "junk@math.uni-sb.de",
+SupportEmail := "weitze@math.uni-sb.de",
 
 ArchiveURL := Concatenation( ~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
@@ -41,12 +41,13 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "junk@math.uni-sb.de",
-    WWWHome       := "http://www.math.uni-sb.de/ag/weitze/",
+    WWWHome       := "https://www.uni-saarland.de/lehrstuhl/weber-moritz/team/luca-junk.html",
     PostalAddress := Concatenation( [
-                       "AG Weitze-Schmithüsen\n",
-                       "FR 6.1 Mathematik\n",
-                       "Universität des Saarlandes\n",
-                       "D-66041 Saarbrücken" ] ),
+                       "Saarland University\n",
+                       "Department of Mathematics\n",
+                       "Postfach 15 11 50\n",
+                       "66041 Saarbrücken\n",
+                       "Germany" ] ),
     Place         := "Saarbrücken",
     Institution   := "Universität des Saarlandes"
   ),
@@ -68,7 +69,7 @@ Persons := [
 
 ],
 
-Status := "dev",
+Status := "other",
 
 README_URL :=
   Concatenation( ~.PackageWWWHome, "/README.md" ),
