@@ -61,12 +61,17 @@ citeas: |
 bibtex: |
     @misc{ ModularGroup2.0.0,
       author =           {Junk, L. L. and Weitze-Schmith{\"u}sen, G.},
-      title =            {{ModularGroup}, Finite-index subgroups of (P)SL(2,Integers), {V}ersion 2.0.0},
+      title =            {{ModularGroup},      Finite-index     subgroups     of
+                          (P)SL(2,Integers), {V}ersion 2.0.0},
       month =            {Jul},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href {https://ag-weitze-schmithusen.github.io/ModularGroup} {\texttt{https://ag-weitze-schmithusen.github.io/}\discretionary {}{}{}\texttt{ModularGroup}}},
-      keywords =         {PSL(2,Z); PSL2Z; SL(2,Z); SL2Z; modular group; congruence subgroup},
+      howpublished =     {\href
+                          {https://ag-weitze-schmithusen.github.io/ModularGroup}
+                          {\texttt{https://ag-weitze-schmithusen.github.io/}\discretionary
+                          {}{}{}\texttt{ModularGroup}}},
+      keywords =         {PSL(2,Z);   PSL2Z;   SL(2,Z);   SL2Z;  modular  group;
+                          congruence subgroup},
       printedkey =       {JW22}
     }
 
