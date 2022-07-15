@@ -6,10 +6,10 @@
                       [1XFinite-index subgroups of [22X(P)SL_2(ℤ)[122X[101X
   
   
-                                 Version 1.0.0
+                                 Version 2.0.0
   
   
-                               27 September 2021
+                                  14 July 2022
   
   
                                   Luca L. Junk
@@ -20,11 +20,12 @@
   
   Luca L. Junk
       Email:    [7Xmailto:junk@math.uni-sb.de[107X
-      Homepage: [7Xhttp://www.math.uni-sb.de/ag/weitze/[107X
-      Address:  [33X[0;14YAG Weitze-Schmithüsen[133X
-                [33X[0;14YFR 6.1 Mathematik[133X
-                [33X[0;14YUniversität des Saarlandes[133X
-                [33X[0;14YD-66041 Saarbrücken[133X
+      Homepage: [7Xhttps://www.uni-saarland.de/lehrstuhl/weber-moritz/team/luca-junk.html[107X
+      Address:  [33X[0;14YSaarland University[133X
+                [33X[0;14YDepartment of Mathematics[133X
+                [33X[0;14YPostfach 15 11 50[133X
+                [33X[0;14Y66041 Saarbrücken[133X
+                [33X[0;14YGermany[133X
   
   
   Gabriela Weitze-Schmithüsen
@@ -39,7 +40,7 @@
   
   -------------------------------------------------------
   [1XCopyright[101X
-  [33X[0;0Y© 2021 by Luca L. Junk and Gabriela Weitze-Schmithüsen[133X
+  [33X[0;0Y© 2022 by Luca L. Junk and Gabriela Weitze-Schmithüsen[133X
   
   
   -------------------------------------------------------
