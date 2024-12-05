@@ -19,8 +19,6 @@ generators.
 <Heading>Construction of modular subgroups</Heading>
 
 <ManSection>
-  <Heading>Constructors</Heading>
-
   <Oper Name="ModularSubgroup" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -68,13 +66,17 @@ gap> G := ModularSubgroup(
 <modular subgroup of index 10>
 ]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroupST" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
     Synonymous for <C>ModularSubgroup</C> (see above).
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroupRT" Arg="r, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -121,7 +123,9 @@ gap> G := ModularSubgroupRT(
 <modular subgroup of index 10>
 ]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgrouSJ" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -168,7 +172,9 @@ gap> G := ModularSubgroupSJ(
 <modular subgroup of index 10>
 ]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroup" Label="ModularSubgroupGens" Arg="gens" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -188,47 +194,55 @@ gap> G := ModularSubgroup([
 <modular subgroup of index 6>
 ]]></Example>
   </Description>
-
 </ManSection>
+</Section>
 
-<ManSection>
+<Section>
   <Heading>Getters for the coset action</Heading>
 
+<ManSection>
   <Oper Name="SAction" Label="SActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_S</M> describing the action of the matrix
     <M>S</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="TAction" Label="TActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_T</M> describing the action of the matrix
     <M>T</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="RAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_R</M> describing the action of the matrix
     <M>R</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="JAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_J</M> describing the action of the matrix
     <M>J</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="CosetActionOf" Arg="A, G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_A</M> describing the action of the matrix
     <M>A \in SL_2(&ZZ;)</M> on the cosets of <A>G</A>.
   </Description>
-
 </ManSection>
 </Section>
 
