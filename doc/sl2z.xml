@@ -482,9 +482,9 @@ gap> G := ModularSubgroup([
 > ]);
 <modular subgroup of index 12>
 gap> Deficiency(G);
-2
+1
 gap> Deficiency(G, GeneralizedLevel(G));
-2
+1
 ]]></Example>
 
 <ManSection>
