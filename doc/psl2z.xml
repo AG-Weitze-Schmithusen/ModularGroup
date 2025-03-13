@@ -413,7 +413,7 @@ CharacterTable( <permutation group of size 3456 with 2 generators> )
 </ManSection>
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-<modular subgroup of index 3>
+<projective modular subgroup of index 3>
 gap> IsElementOf([[1,1],[0,1]], G);
 true
 gap> IsElementOf([[0,-1],[1,0]], G);
@@ -431,7 +431,7 @@ false
 </ManSection>
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-<modular subgroup of index 3>
+<projective modular subgroup of index 3>
 gap> Genus(G);
 0
 ]]></Example>
