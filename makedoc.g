@@ -10,6 +10,6 @@ AutoDoc(rec(
     gapdoc := rec(main := "manual.xml"),
     scaffold := false,
     autodoc := true,
-    #extract_examples := true,
+    extract_examples := true,
 ));
 QUIT;
