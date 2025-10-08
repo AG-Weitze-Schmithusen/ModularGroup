@@ -19,8 +19,6 @@ generators.
 <Heading>Construction of modular subgroups</Heading>
 
 <ManSection>
-  <Heading>Constructors</Heading>
-
   <Oper Name="ModularSubgroup" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -61,22 +59,24 @@ generators.
     to make the internal interaction with existing &GAP; methods easier. (The fact
     that <M>1</M> corresponds to the identity coset is not changed by this)
 
-    <Example>
-    <![CDATA[
-    gap> G := ModularSubgroup(
-    > (1,2)(3,4)(5,6)(7,8)(9,10),
-    > (1,4)(2,5,9,10,8)(3,7,6));
-    <modular subgroup of index 10>
-    ]]>
-    </Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup(
+> (1,2)(3,4)(5,6)(7,8)(9,10),
+> (1,4)(2,5,9,10,8)(3,7,6));
+<modular subgroup of index 10>
+]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroupST" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
     Synonymous for <C>ModularSubgroup</C> (see above).
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroupRT" Arg="r, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -116,16 +116,16 @@ generators.
     to make the internal interaction with existing &GAP; methods easier. (The fact
     that <M>1</M> corresponds to the identity coset is not changed by this)
 
-    <Example>
-    <![CDATA[
-    gap> G := ModularSubgroupRT(
-    > (1,9,8,10,7)(2,6)(3,4,5),
-    > (1,4)(2,5,9,10,8)(3,7,6));
-    <modular subgroup of index 10>
-    ]]>
-    </Example>
+<Example><![CDATA[
+gap> G := ModularSubgroupRT(
+> (1,9,8,10,7)(2,6)(3,4,5),
+> (1,4)(2,5,9,10,8)(3,7,6));
+<modular subgroup of index 10>
+]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgrouSJ" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -165,16 +165,16 @@ generators.
     to make the internal interaction with existing &GAP; methods easier. (The fact
     that <M>1</M> corresponds to the identity coset is not changed by this)
 
-    <Example>
-    <![CDATA[
-    gap> G := ModularSubgroupSJ(
-    > (1,2)(3,6)(4,7)(5,9)(8,10),
-    > (1,5,6)(2,3,7)(4,9,10));
-    <modular subgroup of index 10>
-    ]]>
-    </Example>
+<Example><![CDATA[
+gap> G := ModularSubgroupSJ(
+> (1,2)(3,6)(4,7)(5,9)(8,10),
+> (1,5,6)(2,3,7)(4,9,10));
+<modular subgroup of index 10>
+]]></Example>
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="ModularSubgroup" Label="ModularSubgroupGens" Arg="gens" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -185,58 +185,64 @@ generators.
     This constructor implicitly computes a coset table of the subgroup. Hence it
     might be slow for very large index subgroups.
 
-    <Example>
-    <![CDATA[
-    gap> G := ModularSubgroup([
-    > [[1,2], [0,1]],
-    > [[1,0], [2,1]],
-    > [[-1,0], [0,-1]]
-    > ]);
-    <modular subgroup of index 6>
-    ]]>
-  </Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2], [0,1]],
+> [[1,0], [2,1]],
+> [[-1,0], [0,-1]]
+> ]);
+<modular subgroup of index 6>
+]]></Example>
   </Description>
-
 </ManSection>
+</Section>
 
-<ManSection>
+<Section>
   <Heading>Getters for the coset action</Heading>
 
+<ManSection>
   <Oper Name="SAction" Label="SActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_S</M> describing the action of the matrix
     <M>S</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="TAction" Label="TActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_T</M> describing the action of the matrix
     <M>T</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="RAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_R</M> describing the action of the matrix
     <M>R</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="JAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_J</M> describing the action of the matrix
     <M>J</M> on the cosets of <A>G</A>.
   </Description>
-
+</ManSection>
+  
+<ManSection>
   <Oper Name="CosetActionOf" Arg="A, G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_A</M> describing the action of the matrix
     <M>A \in SL_2(&ZZ;)</M> on the cosets of <A>G</A>.
   </Description>
-
 </ManSection>
 </Section>
 
@@ -256,14 +262,12 @@ generators.
     (or <M>1</M> if the permutations are trivial).
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <modular subgroup of index 6>
-  gap> Index(G);
-  6
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<modular subgroup of index 6>
+gap> Index(G);
+6
+]]></Example>
 
 <ManSection>
   <Attr Name="GeneralizedLevel" Label="GeneralizedLevelSL2Z" Arg="G" />
@@ -273,14 +277,12 @@ generators.
     multiple of all cusp widths) of <A>G</A> as defined in <Cite Key="wohlfahrt1964"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <modular subgroup of index 6>
-  gap> GeneralizedLevel(G);
-  2
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<modular subgroup of index 6>
+gap> GeneralizedLevel(G);
+2
+]]></Example>
 
 <ManSection>
   <Attr Name="RightCosetRepresentatives" Label="RightCosetRepresentativesSL2Z" Arg="G" />
@@ -290,14 +292,12 @@ generators.
     <A>G</A> as words in <M>S</M> and <M>T</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2),(2,3));
-  <modular subgroup of index 3>
-  gap> RightCosetRepresentatives(G);
-  [ <identity ...>, S, S*T ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2),(2,3));
+<modular subgroup of index 3>
+gap> RightCosetRepresentatives(G);
+[ <identity ...>, S, S*T ]
+]]></Example>
 
 <ManSection>
   <Attr Name="GeneratorsOfGroup" Label="GeneratorsOfGroupSL2Z" Arg="G" />
@@ -307,14 +307,12 @@ generators.
     This list might include redundant generators (or even duplicates).
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <modular subgroup of index 6>
-  gap> GeneratorsOfGroup(G);
-  [ S^-2, T^-2, S*T^-2*S^-1 ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<modular subgroup of index 6>
+gap> GeneratorsOfGroup(G);
+[ S^-2, T^-2, S*T^-2*S^-1 ]
+]]></Example>
 
 <ManSection>
   <Attr Name="MatrixGeneratorsOfGroup" Arg="G" />
@@ -324,14 +322,12 @@ generators.
     This list might include redundant generators (or even duplicates).
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <modular subgroup of index 6>
-  gap> MatrixGeneratorsOfGroup(G);
-  [ [ [ -1, 0 ], [ 0, -1 ] ], [ [ 1, -2 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 2, 1 ] ] ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<modular subgroup of index 6>
+gap> MatrixGeneratorsOfGroup(G);
+[ [ [ -1, 0 ], [ 0, -1 ] ], [ [ 1, -2 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 2, 1 ] ] ]
+]]></Example>
 
 <ManSection>
   <Attr Name="IsCongruence" Label="IsCongruenceSL2Z" Arg="G" />
@@ -342,17 +338,15 @@ generators.
     <Cite Key="hamilton_loeffler_2014"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> IsCongruence(G);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> IsCongruence(G);
+true
+]]></Example>
 
 <ManSection>
   <Attr Name="Cusps" Label="CuspsSL2Z" Arg="G" />
@@ -362,17 +356,15 @@ generators.
     to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <modular subgroup of index 24>
-  gap> Cusps(G);
-  [ infinity, 0, 1, 2, 3/2, 5/3 ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<modular subgroup of index 24>
+gap> Cusps(G);
+[ infinity, 0, 1, 2, 3/2, 5/3 ]
+]]></Example>
 
 <ManSection>
   <Oper Name="CuspWidth" Label="CuspWidthSL2Z" Arg="c, G" />
@@ -383,19 +375,17 @@ generators.
     respect to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup(
-  > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
-  > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
-  > );
-  <modular subgroup of index 24>
-  gap> CuspWidth(-1, G);
-  3
-  gap> CuspWidth(infinity, G);
-  3
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup(
+> (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
+> (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
+> );
+<modular subgroup of index 24>
+gap> CuspWidth(-1, G);
+3
+gap> CuspWidth(infinity, G);
+3
+]]></Example>
 
 <ManSection>
   <Oper Name="CuspsEquivalent" Label="CuspsEquivalentSL2Z" Arg="p, q, G" />
@@ -406,19 +396,17 @@ generators.
     <M>A \in G</M> with <M>Ap = q</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup(
-  > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
-  > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
-  > );
-  <modular subgroup of index 24>
-  gap> CuspsEquivalent(infinity, 1, G);
-  false
-  gap> CuspsEquivalent(-1, 1/2, G);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup(
+> (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
+> (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
+> );
+<modular subgroup of index 24>
+gap> CuspsEquivalent(infinity, 1, G);
+false
+gap> CuspsEquivalent(-1, 1/2, G);
+true
+]]></Example>
 
 <ManSection>
   <Oper Name="CosetRepresentativeOfCusp" Label="CosetRepresentativeOfCuspSL2Z" Arg="c, G" />
@@ -429,17 +417,15 @@ generators.
     respect to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup(
-  > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
-  > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
-  > );
-  <modular subgroup of index 24>
-  gap> CosetRepresentativeOfCusp(4, G);
-  T*S
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup(
+> (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
+> (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
+> );
+<modular subgroup of index 24>
+gap> CosetRepresentativeOfCusp(4, G);
+T*S
+]]></Example>
 
 <ManSection>
   <Oper Name="IndexModN" Label="IndexModNSL2Z" Arg="G, N" />
@@ -450,14 +436,12 @@ generators.
     <M>SL_2(&ZZ;/N&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <modular subgroup of index 6>
-  gap> IndexModN(G, 2);
-  6
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<modular subgroup of index 6>
+gap> IndexModN(G, 2);
+6
+]]></Example>
 
 <ManSection>
   <Oper Name="Deficiency" Label="DeficiencySL2Z" Arg="G, N" />
@@ -472,19 +456,17 @@ generators.
     is the principal congruence subgroup of level <M>N</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> Deficiency(G, 2);
-  2
-  gap> Deficiency(G, 4);
-  1
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> Deficiency(G, 2);
+2
+gap> Deficiency(G, 4);
+1
+]]></Example>
 
 <ManSection>
   <Attr Name="Deficiency" Label="DeficiencySL2ZAttr" Arg="G" />
@@ -493,19 +475,17 @@ generators.
     Shorthand for <C>Deficiency(G, GeneralizedLevel(G))</C>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> Deficiency(G);
-  2
-  gap> Deficiency(G, GeneralizedLevel(G));
-  2
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> Deficiency(G);
+1
+gap> Deficiency(G, GeneralizedLevel(G));
+1
+]]></Example>
 
 <ManSection>
   <Oper Name="Projection" Arg="G" />
@@ -515,17 +495,15 @@ generators.
     <M>\bar{<A>G</A>}</M> under the projection <M>\pi \colon SL_2(&ZZ;) \rightarrow PSL_2(&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> Projection(G);
-  <projective modular subgroup of index 6>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> Projection(G);
+<projective modular subgroup of index 6>
+]]></Example>
 
 
 <ManSection>
@@ -544,17 +522,15 @@ generators.
     subgroup of <A>G</A> that is normal in <M>SL_2(&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> NormalCore(G);
-  <modular subgroup of index 48>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> NormalCore(G);
+<modular subgroup of index 48>
+]]></Example>
 
 <ManSection>
   <Attr Name="QuotientByNormalCore" Label="QuotientByNormalCoreSL2Z" Arg="G" />
@@ -563,17 +539,15 @@ generators.
     Calculates the quotient of <M>SL_2(&ZZ;)</M> by the normal core of <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> QuotientByNormalCore(G);
-  <permutation group with 2 generators>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> QuotientByNormalCore(G);
+<permutation group with 2 generators>
+]]></Example>
 
 
 <ManSection>
@@ -584,17 +558,15 @@ generators.
     of <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> AssociatedCharacterTable(G);
-  CharacterTable( <permutation group of size 48 with 2 generators> )
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> AssociatedCharacterTable(G);
+CharacterTable( <permutation group of size 48 with 2 generators> )
+]]></Example>
 
 
 <ManSection>
@@ -605,19 +577,17 @@ generators.
     subgroup <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  <modular subgroup of index 12>
-  gap> IsElementOf([[-1,0],[0,-1]], G);
-  false
-  gap> IsElementOf([[1,4],[0,1]], G);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+<modular subgroup of index 12>
+gap> IsElementOf([[-1,0],[0,-1]], G);
+false
+gap> IsElementOf([[1,4],[0,1]], G);
+true
+]]></Example>
 
 
 <ManSection>
@@ -628,14 +598,12 @@ generators.
     described in <Cite Key="schmithuesen_alg"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ModularSubgroup((1,2),(2,3));
-  <modular subgroup of index 3>
-  gap> Genus(G);
-  0
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ModularSubgroup((1,2),(2,3));
+<modular subgroup of index 3>
+gap> Genus(G);
+0
+]]></Example>
 
 </Section>
 
@@ -656,14 +624,12 @@ documented for sake of completeness.
     and act transitively.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
-  gap> t := (1,4)(2,5,9,10,8)(3,7,6);;
-  gap> DefinesCosetActionST(s,t);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
+gap> t := (1,4)(2,5,9,10,8)(3,7,6);;
+gap> DefinesCosetActionST(s,t);
+true
+]]></Example>
 
 <ManSection>
   <Oper Name="DefinesCosetActionRT" Arg="r, t" />
@@ -676,14 +642,12 @@ documented for sake of completeness.
     and act transitively.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> r := (1,9,8,10,7)(2,6)(3,4,5);;
-  gap> t := (1,4)(2,5,9,10,8)(3,7,6);;
-  gap> DefinesCosetActionRT(r,t);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> r := (1,9,8,10,7)(2,6)(3,4,5);;
+gap> t := (1,4)(2,5,9,10,8)(3,7,6);;
+gap> DefinesCosetActionRT(r,t);
+true
+]]></Example>
 
 <ManSection>
   <Oper Name="DefinesCosetActionSJ" Arg="s, j" />
@@ -696,14 +660,12 @@ documented for sake of completeness.
     and act transitively.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
-  gap> j := (1,5,6)(2,3,7)(4,9,10);;
-  gap> DefinesCosetActionSJ(s,j);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
+gap> j := (1,5,6)(2,3,7)(4,9,10);;
+gap> DefinesCosetActionSJ(s,j);
+true
+]]></Example>
 
 <ManSection>
   <Oper Name="CosetActionFromGenerators" Arg="gens" />
@@ -714,15 +676,13 @@ documented for sake of completeness.
     of <M>SL_2(&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> CosetActionFromGenerators([
-  > [[1,2],[0,1]],
-  > [[1,0],[2,1]]
-  > ]);
-  [ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> CosetActionFromGenerators([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+[ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
+]]></Example>
 
 <ManSection>
   <Oper Name="STDecomposition" Arg="A" />
@@ -732,13 +692,11 @@ documented for sake of completeness.
     in the generator matrices <M>S</M> and <M>T</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
-  gap> STDecomposition(M);
-  S^2*T^-1*S^-1*T^2*S^-1*T^-1*S^-1
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
+gap> STDecomposition(M);
+S^2*T^-1*S^-1*T^2*S^-1*T^-1*S^-1
+]]></Example>
 
 <ManSection>
   <Oper Name="RTDecomposition" Arg="A" />
@@ -748,13 +706,11 @@ documented for sake of completeness.
     in the generator matrices <M>R</M> and <M>T</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
-  gap> RTDecomposition(M);
-  (R*T^-1*R)^2*T^-1*R^-1*(T*R^-1*T)^2*R^-1*T^-1*R^-1*T*R^-1
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
+gap> RTDecomposition(M);
+(R*T^-1*R)^2*T^-1*R^-1*(T*R^-1*T)^2*R^-1*T^-1*R^-1*T*R^-1
+]]></Example>
 
 <ManSection>
   <Oper Name="SJDecomposition" Arg="A" />
@@ -764,13 +720,11 @@ documented for sake of completeness.
     in the generator matrices <M>S</M> and <M>J</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
-  gap> SJDecomposition(M);
-  S^3*J*(S^-1*J^-1)^2*S^-1*J*S^-1
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
+gap> SJDecomposition(M);
+S^3*J*(S^-1*J^-1)^2*S^-1*J*S^-1
+]]></Example>
 
 <ManSection>
   <Oper Name="STDecompositionAsList" Arg="A" />
@@ -781,14 +735,12 @@ documented for sake of completeness.
     as a list in the format [[generator, exponent], ... ]
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
-  gap> STDecompositionAsList(M);
-  [ [ "S", 2 ], [ "T", -1 ], [ "S", -1 ], [ "T", 2 ], [ "S", -1 ], [ "T", -1 ],
-    [ "S", -1 ], [ "T", 0 ] ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
+gap> STDecompositionAsList(M);
+[ [ "S", 2 ], [ "T", -1 ], [ "S", -1 ], [ "T", 2 ], [ "S", -1 ], [ "T", -1 ],
+  [ "S", -1 ], [ "T", 0 ] ]
+]]></Example>
 
 
 </Section>

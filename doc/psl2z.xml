@@ -32,14 +32,12 @@ Nevertheless we list them here.
     Upon creation, the cosets are renamed in a <URL Text="standardized way">https://www.gap-system.org/Manuals/doc/ref/chap47.html#X85B882F782D7AFD0</URL>
     to make the internal interaction with extisting &GAP; methods easier.
 
-    <Example>
-    <![CDATA[
-    gap> G := ProjectiveModularSubgroup(
-    > (1,2)(3,4)(5,6)(7,8)(9,10),
-    > (1,4)(2,5,9,10,8)(3,7,6));
-    <projective modular subgroup of index 10>
-    ]]>
-    </Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,4)(5,6)(7,8)(9,10),
+> (1,4)(2,5,9,10,8)(3,7,6));
+<projective modular subgroup of index 10>
+]]></Example>
 
     If you want to construct a <C>ProjectiveModularSubgroup</C> from a list of
     generators, you can lift each generator to a matrix in <M>SL_2(&ZZ;)</M>,
@@ -86,14 +84,12 @@ Nevertheless we list them here.
     (or <M>1</M> if the permutations are trivial).
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-  <projective modular subgroup of index 3>
-  gap> Index(G);
-  3
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> Index(G);
+3
+]]></Example>
 
 <ManSection>
   <Attr Name="GeneralizedLevel" Label="GeneralizedLevelPSL2Z" Arg="G" />
@@ -103,17 +99,15 @@ Nevertheless we list them here.
     multiple of all cusp widths) of <A>G</A> as defined in <Cite Key="wohlfahrt1964"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> GeneralizedLevel(G);
-  12
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> GeneralizedLevel(G);
+12
+]]></Example>
 
 
 <ManSection>
@@ -124,14 +118,12 @@ Nevertheless we list them here.
     <A>G</A> as words in <M>\overline{S}</M> and <M>\overline{T}</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-  <projective modular subgroup of index 3>
-  gap> RightCosetRepresentatives(G);
-  [ <identity ...>, S, S*T ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> RightCosetRepresentatives(G);
+[ <identity ...>, S, S*T ]
+]]></Example>
 
 <ManSection>
   <Attr Name="GeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
@@ -142,14 +134,12 @@ Nevertheless we list them here.
     This list might include redundant generators.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
-  <projective modular subgroup of index 6>
-  gap> GeneratorsOfGroup(G);
-  [ T^-2, S*T^-2*S^-1 ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
+<projective modular subgroup of index 6>
+gap> GeneratorsOfGroup(G);
+[ T^-2, S*T^-2*S^-1 ]
+]]></Example>
 
 <ManSection>
   <Attr Name="IsCongruence" Label="IsCongruencePSL2Z" Arg="G" />
@@ -160,17 +150,15 @@ Nevertheless we list them here.
     <Cite Key="hsu_1996"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,5)(4,6),
-  > (1,3)(2,4)(5,6)
-  > );
-  <projective modular subgroup of index 6>
-  gap> IsCongruence(G);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,5)(4,6),
+> (1,3)(2,4)(5,6)
+> );
+<projective modular subgroup of index 6>
+gap> IsCongruence(G);
+true
+]]></Example>
 
 <ManSection>
   <Attr Name="Cusps" Label="CuspsPSL2Z" Arg="G" />
@@ -180,17 +168,15 @@ Nevertheless we list them here.
     to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> Cusps(G);
-  [ infinity, 0, 1, 2, 3/2, 5/3 ]
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> Cusps(G);
+[ infinity, 0, 1, 2, 3/2, 5/3 ]
+]]></Example>
 
 <ManSection>
   <Oper Name="CuspWidth" Label="CuspWidthPSL2Z" Arg="c, G" />
@@ -201,19 +187,17 @@ Nevertheless we list them here.
     respect to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
-  > (1,3,4)(2,5,6)(7,10,11)(8,12,9)
-  > );
-  <projective modular subgroup of index 12>
-  gap> CuspWidth(-1, G);
-  3
-  gap> CuspWidth(infinity, G);
-  3
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
+> (1,3,4)(2,5,6)(7,10,11)(8,12,9)
+> );
+<projective modular subgroup of index 12>
+gap> CuspWidth(-1, G);
+3
+gap> CuspWidth(infinity, G);
+3
+]]></Example>
 
 <ManSection>
   <Oper Name="CuspsEquivalent" Label="CuspsEquivalentPSL2Z" Arg="p, q, G" />
@@ -224,19 +208,17 @@ Nevertheless we list them here.
     <M>A \in G</M> with <M>Ap = q</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
-  > (1,3,4)(2,5,6)(7,10,11)(8,12,9)
-  > );
-  <projective modular subgroup of index 12>
-  gap> CuspsEquivalent(infinity, 1, G);
-  false
-  gap> CuspsEquivalent(-1, 1/2, G);
-  true
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
+> (1,3,4)(2,5,6)(7,10,11)(8,12,9)
+> );
+<projective modular subgroup of index 12>
+gap> CuspsEquivalent(infinity, 1, G);
+false
+gap> CuspsEquivalent(-1, 1/2, G);
+true
+]]></Example>
 
 <ManSection>
   <Oper Name="CosetRepresentativeOfCusp" Label="CosetRepresentativeOfCuspPSL2Z" Arg="c, G" />
@@ -247,17 +229,15 @@ Nevertheless we list them here.
     respect to <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
-  > (1,3,4)(2,5,6)(7,10,11)(8,12,9)
-  > );
-  <projective modular subgroup of index 12>
-  gap> CosetRepresentativeOfCusp(4, G);
-  T*S
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
+> (1,3,4)(2,5,6)(7,10,11)(8,12,9)
+> );
+<projective modular subgroup of index 12>
+gap> CosetRepresentativeOfCusp(4, G);
+T*S
+]]></Example>
 
 <ManSection>
   <Oper Name="LiftToSL2ZEven" Arg="G" />
@@ -268,17 +248,15 @@ Nevertheless we list them here.
     to <M>PSL_2(&ZZ;)</M> is <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
-  > (1,3,4)(2,5,6)(7,10,11)(8,12,9)
-  > );
-  <projective modular subgroup of index 12>
-  gap> LiftToSL2ZOdd(G);
-  <modular subgroup of index 12>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
+> (1,3,4)(2,5,6)(7,10,11)(8,12,9)
+> );
+<projective modular subgroup of index 12>
+gap> LiftToSL2ZEven(G);
+<modular subgroup of index 12>
+]]></Example>
 
 <ManSection>
   <Oper Name="LiftToSL2ZOdd" Arg="G" />
@@ -289,17 +267,15 @@ Nevertheless we list them here.
     projection to <M>PSL_2(&ZZ;)</M> is <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
-  > (1,3,4)(2,5,6)(7,10,11)(8,12,9)
-  > );
-  <projective modular subgroup of index 12>
-  gap> LiftToSL2ZOdd(G);
-  <modular subgroup of index 24>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,7)(4,8)(5,9)(6,10)(11,12),
+> (1,3,4)(2,5,6)(7,10,11)(8,12,9)
+> );
+<projective modular subgroup of index 12>
+gap> LiftToSL2ZOdd(G);
+<modular subgroup of index 24>
+]]></Example>
 
 <ManSection>
   <Oper Name="IndexModN" Label="IndexModNPSL2Z" Arg="G, N" />
@@ -310,17 +286,15 @@ Nevertheless we list them here.
     <M>PSL_2(&ZZ;/N&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> IndexModN(G, 2);
-  6
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> IndexModN(G, 2);
+6
+]]></Example>
 
 
 <ManSection>
@@ -336,17 +310,15 @@ Nevertheless we list them here.
     is the principal congruence subgroup of level <M>N</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> Deficiency(G, 4);
-  4
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> Deficiency(G, 4);
+4
+]]></Example>
 
 <ManSection>
   <Attr Name="Deficiency" Label="DeficiencyPSL2ZAttr" Arg="G" />
@@ -355,19 +327,17 @@ Nevertheless we list them here.
     Shorthand for <C>Deficiency(G, GeneralizedLevel(G))</C>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> Deficiency(G);
-  4
-  gap> Deficiency(G, GeneralizedLevel(G));
-  4
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> Deficiency(G);
+4
+gap> Deficiency(G, GeneralizedLevel(G));
+4
+]]></Example>
 
 
 <ManSection>
@@ -387,17 +357,15 @@ Nevertheless we list them here.
     subgroup of <A>G</A> that is normal in <M>PSL_2(&ZZ;)</M>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> NormalCore(G);
-  <projective modular subgroup of index 3456>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> NormalCore(G);
+<projective modular subgroup of index 3456>
+]]></Example>
 
 <ManSection>
   <Attr Name="QuotientByNormalCore" Label="QuotientByNormalCorePSL2Z" Arg="G" />
@@ -406,17 +374,15 @@ Nevertheless we list them here.
     Calculates the quotient of <M>PSL_2(&ZZ;)</M> by the normal core of <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> QuotientByNormalCore(G);
-  <permutation group with 2 generators>
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> QuotientByNormalCore(G);
+<permutation group with 2 generators>
+]]></Example>
 
 <ManSection>
   <Attr Name="AssociatedCharacterTable" Label="AssociatedCharacterTablePSL2Z" Arg="G" />
@@ -426,17 +392,15 @@ Nevertheless we list them here.
     of <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup(
-  > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
-  > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
-  > );
-  <projective modular subgroup of index 24>
-  gap> AssociatedCharacterTable(G);
-  CharacterTable( <permutation group of size 3456 with 2 generators> )
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup(
+> (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
+> (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
+> );
+<projective modular subgroup of index 24>
+gap> AssociatedCharacterTable(G);
+CharacterTable( <permutation group of size 3456 with 2 generators> )
+]]></Example>
 
 
 <ManSection>
@@ -447,16 +411,14 @@ Nevertheless we list them here.
     is an element of the group <A>G</A>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-  <modular subgroup of index 3>
-  gap> IsElementOf([[1,1],[0,1]], G);
-  true
-  gap> IsElementOf([[0,-1],[1,0]], G);
-  false
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> IsElementOf([[1,1],[0,1]], G);
+true
+gap> IsElementOf([[0,-1],[1,0]], G);
+false
+]]></Example>
 
 
 <ManSection>
@@ -467,14 +429,12 @@ Nevertheless we list them here.
     described in <Cite Key="schmithuesen_alg"/>.
   </Description>
 </ManSection>
-<Example>
-  <![CDATA[
-  gap> G := ProjectiveModularSubgroup((1,2),(2,3));
-  <modular subgroup of index 3>
-  gap> Genus(G);
-  0
-  ]]>
-</Example>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> Genus(G);
+0
+]]></Example>
 
 </Section>
 
