@@ -10,6 +10,7 @@ PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
 Version := "2.0.0",
 Date := "14/07/2022", ## dd/mm/yyyy
+License := "GPL-3.0-or-later",
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
 ##  <!ENTITY VERSION "2.0.0">
