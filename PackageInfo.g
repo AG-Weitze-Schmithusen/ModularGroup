@@ -96,9 +96,7 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := "4.5.3",
 
-  NeededOtherPackages := [["GAPDoc", ">= 1.5"], ["CTblLib", ">= 1.2.2"]],
-
-  SuggestedOtherPackages := [["Congruence", ">=1.1.1"]],
+  NeededOtherPackages := [["GAPDoc", ">= 1.5"], ["CTblLib", ">= 1.2.2"], ["Congruence", ">=1.1.1"]],
 
   ExternalConditions := []
 
