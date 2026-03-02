@@ -44,6 +44,8 @@ DeclareOperation("CosetActionOf", [IsMatrix, IsModularSubgroup]);
 DeclareOperation("CosetRightActionOf", [IsMatrix, IsModularSubgroup]);
 DeclareOperation("CosetLeftActionOf", [IsMatrix, IsModularSubgroup]);
 DeclareOperation("CosetActionFromGenerators", [IsRectangularTable]);
+DeclareOperation("RightCosetActionFromGenerators", [IsRectangularTable]);
+DeclareOperation("LeftCosetActionFromGenerators", [IsRectangularTable]);
 DeclareOperation("STDecomposition", [IsMatrix]);
 DeclareOperation("RTDecomposition", [IsMatrix]);
 DeclareOperation("SJDecomposition", [IsMatrix]);

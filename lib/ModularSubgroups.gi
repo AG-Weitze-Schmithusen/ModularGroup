@@ -137,6 +137,18 @@ InstallMethod(CosetActionFromGenerators, [IsRectangularTable], function(gens)
   return [coset_table[1], coset_table[3]];
 end);
 
+InstallMethod(RightCosetActionFromGenerators, [IsRectangularTable], function(gens)
+  local Perm;
+  Perm:= CosetActionFromGenerators(gens);
+  return [Perm[1],Perm[2]];
+end);
+
+InstallMethod(LeftCosetActionFromGenerators, [IsRectangularTable], function(gens)
+  local Perm;
+  Perm:= CosetActionFromGenerators(gens);
+  return [Perm[1]^-1,Perm[2]^-1];
+end);
+
 InstallMethod(STDecomposition, [IsMatrix], function(M)
   local MatS, MatT, F2, S, T, SL2Z, decomposition, k;
 
