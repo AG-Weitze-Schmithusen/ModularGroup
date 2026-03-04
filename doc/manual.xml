@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE Book SYSTEM "gapdoc.dtd"
-    [ <!ENTITY ModularGroup "<Package>ModularGroup</Package>">
-      <#Include Label="PKGVERSIONDATA">
-    ] >
+<!DOCTYPE Book SYSTEM "gapdoc.dtd" [
+ <#Include SYSTEM "_entities.xml">
+]>
 
 <Book Name="ModularGroup">
 
 <TitlePage>
   <Title>The <Package>ModularGroup</Package> Package</Title>
-  <Subtitle>Finite-index subgroups of <M>(P)SL_2(&ZZ;)</M></Subtitle>
+  <Subtitle>Finite-index subgroups of <M>\mathrm{(P)SL}_2(&ZZ;)</M></Subtitle>
   <Date>&RELEASEDATE;</Date>
   <Version>Version &VERSION;</Version>
-  <Author>Luca L. Junk<Br/>
+  <Author>Sebastian Engelhardt
+    <Email>seen00001@stud.uni-saarland.de</Email>
+    <Homepage>https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen.html</Homepage>
+  </Author>
+  <Author>Luca L. Junk
     <Email>junk@math.uni-sb.de</Email>
     <Homepage>https://www.uni-saarland.de/lehrstuhl/weber-moritz/team/luca-junk.html</Homepage>
-    <Address>
-      Saarland University<Br/>
-      Department of Mathematics<Br/>
-      Postfach 15 11 50<Br/>
-      66041 Saarbrücken<Br/>
-      Germany<Br/>
-    </Address>
+  </Author>
+  <Author>Hannah Wagmann
+    <Email>wagmann@math.uni-sb.de</Email>
+    <Homepage>
+        <Link>https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/team/hannah-wagmann.html</Link>
+        <LinkText>
+            <Alt Not="LaTeX">https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/team/hannah-wagmann.html</Alt>
+            <Alt Only="LaTeX">
+            <C>https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/</C><Br/><M>\indent\hspace{11.5mm}</M><C>team/hannah-wagmann.html</C>
+            </Alt>
+        </LinkText>
+    </Homepage>
   </Author>
   <Author>Gabriela Weitze-Schmithüsen<Br/>
     <Email>weitze@math.uni-sb.de</Email>
-    <Homepage>http://www.math.uni-sb.de/ag/weitze/</Homepage>
-    <Address>
-      AG Weitze-Schmithüsen<Br/>
-      FR 6.1 Mathematik<Br/>
-      Universität des Saarlandes<Br/>
-      D-66041 Saarbrücken<Br/>
-    </Address>
+    <Homepage>
+        <Link>https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/team/gabriela-weitze-schmithuesen.html</Link>
+        <LinkText>
+            <Alt Not="LaTeX">https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/team/gabriela-weitze-schmithuesen.html</Alt>
+            <Alt Only="LaTeX">
+            <C>https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/</C><Br/><M>\indent\hspace{11.5mm}</M><C>team/gabriela-weitze-schmithuesen.html</C>
+            </Alt>
+        </LinkText>
+    </Homepage>
   </Author>
 
-  <Copyright>&copyright; &RELEASEYEAR; by Luca L. Junk and Gabriela Weitze-Schmithüsen
+  <Copyright>&copyright; &RELEASEYEAR; by Sebastian Engelhardt, Luca L. Junk, Hannah Wagmann and Gabriela Weitze-Schmithüsen
   </Copyright>
 
   <Acknowledgements>
