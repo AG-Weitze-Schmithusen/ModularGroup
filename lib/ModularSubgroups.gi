@@ -33,6 +33,30 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
+  local G, type;
+
+  if not DefinesCosetActionST(sp, tp) then
+    Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
+  fi;
+
+  type := NewType(FamilyObj(One(SL(2,Integers))),
+    IsObject and
+    IsMatrixGroup and
+    IsAttributeStoringRep and
+    IsComponentObjectRep and
+    IsFinitelyGeneratedGroup and
+    IsDefaultModularSubgroup);
+
+  G := Objectify(type, rec(
+    s := sp,
+    t := tp,
+    r := sp^-1*tp^-1*sp,
+    j := sp^-1*tp^-1
+  ));
+  return G;
+end);
+
 InstallMethod(ModularSubgroupViaRightAction, [IsPerm, IsPerm], function(sp, tp)
   return ModularSubgroup(sp, tp);
 end);
