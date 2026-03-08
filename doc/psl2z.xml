@@ -126,7 +126,7 @@ gap> RightCosetRepresentatives(G);
 ]]></Example>
 
 <ManSection>
-  <Attr Name="GeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
+  <Attr Name="WordGeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
   <Returns>A list of words.</Returns>
   <Description>
     Calculates a list of generators (as words in <M>\overline{S}</M> and
@@ -137,7 +137,7 @@ gap> RightCosetRepresentatives(G);
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <projective modular subgroup of index 6>
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ T^-2, S*T^-2*S^-1 ]
 ]]></Example>
 
@@ -418,6 +418,50 @@ gap> IsElementOf([[1,1],[0,1]], G);
 true
 gap> IsElementOf([[0,-1],[1,0]], G);
 false
+]]></Example>
+
+
+<ManSection>
+  <Oper Name="IsWordElementOf" Label="IsWordElementOfPSL2ZString" Arg="s, G" />
+  <Returns>True or false.</Returns>
+  <Description>
+    This function checks if a given string <A>s</A> represents an element of the
+    group <A>G</A>, written in the generators <A>S</A> and <A>T</A>.
+  </Description>
+</ManSection>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> IsWordElementOf("S^2 * T", G);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Name="IsWordElementOf" Label="IsWordElementOfPSL2Z" Arg="w, G" />
+  <Returns>True or false.</Returns>
+  <Description>
+    This function checks if a given word <A>w</A> in the generators <A>S</A> and <A>T</A>
+    represents an element of the group <A>G</A>.
+  </Description>
+</ManSection>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> F := FreeGroup("S", "T");
+<free group on the generators [ S, T ]>
+gap> S := F.1;
+S
+gap> T := F.2;
+T
+gap> PSL2Z := F / ParseRelators([S, T], "S^2, (S*T)^3");
+<fp group on the generators [ S, T ]>
+gap> S := GeneratorsOfGroup(PSL2Z)[1];
+S
+gap> T := GeneratorsOfGroup(PSL2Z)[2];
+T
+gap> IsWordElementOf(S^2 * T, G);
+true
 ]]></Example>
 
 

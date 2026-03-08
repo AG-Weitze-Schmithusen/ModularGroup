@@ -60,7 +60,6 @@ InstallOtherMethod(ModularSubgroup, [IsList], function(gens)
 
   a := CosetActionFromGenerators(gens);
   G := ModularSubgroup(a[1], a[2]);
-  SetMatrixGeneratorsOfGroup(G, gens);
   return G;
 end);
 
@@ -384,7 +383,7 @@ InstallMethod(CongruenceLevel, [IsModularSubgroup], function(G)
   fi;
 end);
 
-InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
+InstallMethod(WordGeneratorsOfGroup, [IsModularSubgroup], function(G)
   local s, t, F2, S, T, SL2Z, coset_table, H, index;
 
   s := SAction(G);
@@ -402,9 +401,9 @@ InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
   return GeneratorsOfGroup(H);
 end);
 
-InstallMethod(MatrixGeneratorsOfGroup, [IsModularSubgroup], function(G)
+InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
   local gens, F2, MatS, MatT;
-  gens := ShallowCopy(GeneratorsOfGroup(G));
+  gens := ShallowCopy(WordGeneratorsOfGroup(G));
   F2 := FreeGroup("S", "T");
   MatS := [[0,-1],[1,0]];
   MatT := [[1,1],[0,1]];
@@ -428,9 +427,25 @@ InstallMethod(\in, "for a finite-index subgroup of SL(2,Z)", [IsMatrix, IsModula
   return IsElementOf(A, G);
 end);
 
+InstallMethod(IsWordElementOf, [IsElementOfFpGroup, IsModularSubgroup], function(w, G)
+  local F2, w2, p;
+   F2 := FreeGroup(2);
+   w2 := ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w));
+   p := MappedWord(w2, [F2.1, F2.2], [SAction(G), TAction(G)]);
+   return 1^p = 1;
+end);
+
+InstallMethod(IsWordElementOf, [IsString, IsModularSubgroup], function(w, G)
+  local F2, w2, p;
+   F2 := FreeGroup("S","T");
+	 w2 := ParseRelators(GeneratorsOfGroup(F2), w)[1];
+   p := MappedWord(w2, [F2.1, F2.2], [SAction(G), TAction(G)]);
+   return 1^p = 1;
+end);
+
 InstallMethod(IsSubset, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(H, G)
   local gens, g;
-  gens := MatrixGeneratorsOfGroup(H);
+  gens := GeneratorsOfGroup(H);
   for g in gens do
     if not g in G then
       return false;
@@ -525,7 +540,7 @@ end);
 InstallMethod(IndexModN, [IsModularSubgroup, IsPosInt], function(G, N)
   local gens, SL2Zn, H;
   if N = 1 then return 1; fi;
-  gens := ShallowCopy(MatrixGeneratorsOfGroup(G));
+  gens := ShallowCopy(GeneratorsOfGroup(G));
   Apply(gens, M ->
     [[ZmodnZObj(M[1][1], N), ZmodnZObj(M[1][2], N)],
      [ZmodnZObj(M[2][1], N), ZmodnZObj(M[2][2], N)]]
