@@ -33,8 +33,11 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+#same as ModularSubgroup constructor, but additionally returns how the permutations sp and tp were
+#rewritten in the standardization (i.e. returns a permutation pi such that new_sp = sp^pi and
+#new_tp = tp^pi). Currently for internal use in VeechGroupAndOrbit calculation in origami only.
 InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
-  local G, type;
+  local G, type, tab, index, l1, l2, l3, l4, sp_new, tp_new, pi;
 
   if not DefinesCosetActionST(sp, tp) then
     Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
@@ -48,13 +51,26 @@ InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
     IsFinitelyGeneratedGroup and
     IsDefaultModularSubgroup);
 
+  index := Maximum(LargestMovedPoint([sp,tp]), 1);
+  l1 := ListPerm(sp, index);    l1[1] := l1[1];
+  l2 := ListPerm(sp^-1, index); l2[1] := l2[1];
+  l3 := ListPerm(tp, index);    l3[1] := l3[1];
+  l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
+  tab := [l1, l2, l3, l4];
+  StandardizeTable(tab);
+
+  sp_new := PermList(tab[1]);
+  tp_new := PermList(tab[3]);
+
+  pi := RepresentativeAction(SymmetricGroup(index), [sp, tp], [sp_new, tp_new], OnTuples);
+
   G := Objectify(type, rec(
-    s := sp,
-    t := tp,
-    r := sp^-1*tp^-1*sp,
-    j := sp^-1*tp^-1
+    s := sp_new,
+    t := tp_new,
+    r := sp_new^-1*tp_new^-1*sp_new,
+    j := sp_new^-1*tp_new^-1
   ));
-  return G;
+  return [G, pi];
 end);
 
 InstallMethod(ModularSubgroupViaRightAction, [IsPerm, IsPerm], function(sp, tp)
