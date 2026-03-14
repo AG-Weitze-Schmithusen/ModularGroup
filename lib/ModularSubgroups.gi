@@ -423,14 +423,7 @@ InstallMethod(RightCosetRepresentatives, [IsModularSubgroup], function(G)
 end);
 
 InstallMethod(LeftCosetRepresentatives, [IsModularSubgroup], function(G)
-  local ListOfRightRep, List, index, i;
-  ListOfRightRep:=RightCosetRepresentatives(G);
-  index:= Index(G);
-  List:=[];
-  for i in [1..index] do
-    List[i]:= ListOfRightRep[i]^-1;
-  od;
-  return List;
+  return List(RightCosetRepresentatives(G), Inverse);
 end);
 
 # The generalized level of G is defined to be the smallest n for which Deficiency(G, n) is minimal.
