@@ -33,6 +33,54 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+#same as ModularSubgroup constructor, but additionally returns how the permutations sp and tp were
+#rewritten in the standardization (i.e. returns a permutation pi such that new_sp = sp^pi and
+#new_tp = tp^pi). Currently for internal use in VeechGroupAndOrbit calculation in origami only.
+InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
+  local G, type, tab, index, l1, l2, l3, l4, sp_new, tp_new, pi;
+
+  if not DefinesCosetActionST(sp, tp) then
+    Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
+  fi;
+
+  type := NewType(FamilyObj(One(SL(2,Integers))),
+    IsObject and
+    IsMatrixGroup and
+    IsAttributeStoringRep and
+    IsComponentObjectRep and
+    IsFinitelyGeneratedGroup and
+    IsDefaultModularSubgroup);
+
+  index := Maximum(LargestMovedPoint([sp,tp]), 1);
+  l1 := ListPerm(sp, index);    l1[1] := l1[1];
+  l2 := ListPerm(sp^-1, index); l2[1] := l2[1];
+  l3 := ListPerm(tp, index);    l3[1] := l3[1];
+  l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
+  tab := [l1, l2, l3, l4];
+  StandardizeTable(tab);
+
+  sp_new := PermList(tab[1]);
+  tp_new := PermList(tab[3]);
+
+  pi := RepresentativeAction(SymmetricGroup(index), [sp, tp], [sp_new, tp_new], OnTuples);
+
+  G := Objectify(type, rec(
+    s := sp_new,
+    t := tp_new,
+    r := sp_new^-1*tp_new^-1*sp_new,
+    j := sp_new^-1*tp_new^-1
+  ));
+  return [G, pi];
+end);
+
+InstallMethod(ModularSubgroupViaRightAction, [IsPerm, IsPerm], function(sp, tp)
+  return ModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ModularSubgroupViaLeftAction, [IsPerm, IsPerm], function(sp, tp)
+  return ModularSubgroup(sp^-1, tp^-1);
+end);
+
 InstallMethod(ModularSubgroupST, [IsPerm, IsPerm], function(sp, tp)
   return ModularSubgroup(sp, tp);
 end);
@@ -128,6 +176,18 @@ InstallMethod(CosetActionFromGenerators, [IsRectangularTable], function(gens)
   return [coset_table[1], coset_table[3]];
 end);
 
+InstallMethod(RightCosetActionFromGenerators, [IsRectangularTable], function(gens)
+  local Perm;
+  Perm:= CosetActionFromGenerators(gens);
+  return [Perm[1],Perm[2]];
+end);
+
+InstallMethod(LeftCosetActionFromGenerators, [IsRectangularTable], function(gens)
+  local Perm;
+  Perm:= CosetActionFromGenerators(gens);
+  return [Perm[1]^-1,Perm[2]^-1];
+end);
+
 InstallMethod(STDecomposition, [IsMatrix], function(M)
   local MatS, MatT, F2, S, T, SL2Z, decomposition, k;
 
@@ -217,16 +277,48 @@ InstallMethod(SAction, [IsModularSubgroup], function(G)
   return G!.s;
 end);
 
+InstallMethod(SRightAction, [IsModularSubgroup], function(G)
+  return G!.s;
+end);
+
+InstallMethod(SLeftAction, [IsModularSubgroup], function(G)
+  return (G!.s)^-1;
+end);
+
 InstallMethod(TAction, [IsModularSubgroup], function(G)
   return G!.t;
+end);
+
+InstallMethod(TRightAction, [IsModularSubgroup], function(G)
+  return G!.t;
+end);
+
+InstallMethod(TLeftAction, [IsModularSubgroup], function(G)
+  return (G!.t)^-1;
 end);
 
 InstallMethod(RAction, [IsModularSubgroup], function(G)
   return G!.r;
 end);
 
+InstallMethod(RRightAction, [IsModularSubgroup], function(G)
+  return G!.r;
+end);
+
+InstallMethod(RLeftAction, [IsModularSubgroup], function(G)
+  return (G!.r)^-1;
+end);
+
 InstallMethod(JAction, [IsModularSubgroup], function(G)
   return G!.j;
+end);
+
+InstallMethod(JRightAction, [IsModularSubgroup], function(G)
+  return G!.j;
+end);
+
+InstallMethod(JLeftAction, [IsModularSubgroup], function(G)
+  return (G!.j)^-1;
 end);
 
 InstallMethod(CosetActionOf, [IsMatrix, IsModularSubgroup], function(A, G)
@@ -241,6 +333,14 @@ InstallMethod(CosetActionOf, [IsMatrix, IsModularSubgroup], function(A, G)
   F2 := FreeGroup(2);
   w := ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w));
   return MappedWord(w, [F2.1, F2.2], [SAction(G), TAction(G)]);
+end);
+
+InstallMethod(CosetRightActionOf, [IsMatrix, IsModularSubgroup], function(A, G)
+  return CosetActionOf(A,G);
+end);
+
+InstallMethod(CosetLeftActionOf, [IsMatrix, IsModularSubgroup], function(A, G)
+  return CosetActionOf(A,G)^-1;
 end);
 
 InstallMethod(Index, "for a modular subgroup", [IsModularSubgroup], function(G)
@@ -319,6 +419,10 @@ InstallMethod(RightCosetRepresentatives, [IsModularSubgroup], function(G)
   # Unfortunately though, computing the stabilizer becomes really slow for large (>1000) index
 
   return AsList(RightTransversal(SL2Z, H));
+end);
+
+InstallMethod(LeftCosetRepresentatives, [IsModularSubgroup], function(G)
+  return List(RightCosetRepresentatives(G), Inverse);
 end);
 
 # The generalized level of G is defined to be the smallest n for which Deficiency(G, n) is minimal.

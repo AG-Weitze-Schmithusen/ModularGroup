@@ -9,7 +9,7 @@
 
 <TitlePage>
   <Title>The <Package>ModularGroup</Package> Package</Title>
-  <Subtitle>Finite-index subgroups of <M>(P)SL_2(&ZZ;)</M></Subtitle>
+  <Subtitle>Finite-index subgroups of <M>\mathrm{(P)SL}_2(&ZZ;)</M></Subtitle>
   <Date>&RELEASEDATE;</Date>
   <Version>Version &VERSION;</Version>
   <Author>Luca L. Junk<Br/>
