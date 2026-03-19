@@ -6,7 +6,9 @@ This package implements finite-index subgroups of $\mathrm{(P)SL}_2(\mathbb{Z})$
 These subgroups are stored as tuples of permutations `s` and `t` which describe the action of the generator matrices
 
 $$
-  S = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad \mathrm{and} \quad T = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+  S = \begin{pmatrix} 0 & -1 \\
+  1 & 0 \end{pmatrix} \quad \mathrm{and} \quad T = \begin{pmatrix} 1 & 1 \\
+  0 & 1 \end{pmatrix}
 $$
 
 on the right cosets.
