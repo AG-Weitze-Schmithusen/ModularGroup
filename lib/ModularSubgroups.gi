@@ -45,16 +45,48 @@ InstallMethod(ModularSubgroupST, [IsPerm, IsPerm], function(sp, tp)
   return ModularSubgroup(sp, tp);
 end);
 
+InstallMethod(ModularSubgroupSTViaRightAction, [IsPerm, IsPerm], function(sp, tp)
+  return ModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ModularSubgroupSTViaLeftAction, [IsPerm, IsPerm], function(sp, tp)
+  return ModularSubgroup(sp^-1, tp^-1);
+end);
+
 InstallMethod(ModularSubgroupRT, [IsPerm, IsPerm], function(rp, tp)
   local sp;
   sp := rp*tp^-1*rp;
   return ModularSubgroup(sp, tp);
 end);
 
+InstallMethod(ModularSubgroupRTViaRightAction, [IsPerm, IsPerm], function(rp, tp)
+  local sp;
+  sp := rp*tp^-1*rp;
+  return ModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ModularSubgroupRTViaLeftAction, [IsPerm, IsPerm], function(rp, tp)
+  local sp;
+  sp := rp*tp^-1*rp;
+  return ModularSubgroup(sp^-1, tp^-1);
+end);
+
 InstallMethod(ModularSubgroupSJ, [IsPerm, IsPerm], function(sp, jp)
   local tp;
   tp := jp^-1*sp^-1;
   return ModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ModularSubgroupSJViaRightAction, [IsPerm, IsPerm], function(sp, jp)
+  local tp;
+  tp := jp^-1*sp^-1;
+  return ModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ModularSubgroupSJViaLeftAction, [IsPerm, IsPerm], function(sp, jp)
+  local tp;
+  tp := jp^-1*sp^-1;
+  return ModularSubgroup(sp^-1, tp^-1);
 end);
 
 InstallOtherMethod(ModularSubgroup, [IsList], function(gens)
