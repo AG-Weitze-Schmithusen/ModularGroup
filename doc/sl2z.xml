@@ -758,7 +758,6 @@ true
 ]]></Example>
 
 <ManSection>
-  <Heading>CosetActionFromGenerators</Heading>
   <Oper Name="RightCosetActionFromGenerators" Arg="gens" />
   <Returns>A tuple of permutations.</Returns>
   <Description>
@@ -774,11 +773,10 @@ gap> RightCosetActionFromGenerators([
 > ]);
 [ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
 ]]></Example>
-</Description>
+<ManSection>
   <Oper Name="LeftCosetActionFromGenerators" Arg="gens" />
   <Returns>A tuple of permutations.</Returns>
 </ManSection>
-
 
 <ManSection>
   <Oper Name="STDecomposition" Arg="A" />

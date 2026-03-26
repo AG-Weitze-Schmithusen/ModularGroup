@@ -10,25 +10,25 @@
 #
 gap> START_TEST("modulargroup01.tst");
 
-# doc/sl2z.xml:62-67
-gap> G := ModularSubgroup(
+# doc/sl2z.xml:64-69
+gap> G := ModularSubgroupViaRightAction(
 > (1,2)(3,4)(5,6)(7,8)(9,10),
 > (1,4)(2,5,9,10,8)(3,7,6));
 <modular subgroup of index 10>
 
-# doc/sl2z.xml:119-124
-gap> G := ModularSubgroupRT(
+# doc/sl2z.xml:131-136
+gap> G := ModularSubgroupRTViaRightAction(
 > (1,9,8,10,7)(2,6)(3,4,5),
 > (1,3)(2,4,8,10,5)(6,9,7));
 <modular subgroup of index 10>
 
-# doc/sl2z.xml:168-173
-gap> G := ModularSubgroupSJ(
+# doc/sl2z.xml:183-188
+gap> G := ModularSubgroupSJViaRightAction(
 > (1,2)(3,6)(4,7)(5,9)(8,10),
 > (1,5,6)(2,3,7)(4,9,10));
 <modular subgroup of index 10>
 
-# doc/sl2z.xml:188-195
+# doc/sl2z.xml:205-212
 gap> G := ModularSubgroup([
 > [[1,2], [0,1]],
 > [[1,0], [2,1]],
@@ -36,37 +36,37 @@ gap> G := ModularSubgroup([
 > ]);
 <modular subgroup of index 6>
 
-# doc/sl2z.xml:265-270
+# doc/sl2z.xml:297-302
 gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <modular subgroup of index 6>
 gap> Index(G);
 6
 
-# doc/sl2z.xml:280-285
+# doc/sl2z.xml:312-317
 gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <modular subgroup of index 6>
 gap> GeneralizedLevel(G);
 2
 
-# doc/sl2z.xml:295-300
+# doc/sl2z.xml:327-332
 gap> G := ModularSubgroup((1,2),(2,3));
 <modular subgroup of index 3>
 gap> RightCosetRepresentatives(G);
 [ <identity ...>, S, S*T ]
 
-# doc/sl2z.xml:310-315
+# doc/sl2z.xml:350-355
 gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <modular subgroup of index 6>
 gap> WordGeneratorsOfGroup(G);
 [ S^-2, T^-2, S*T^-2*S^-1 ]
 
-# doc/sl2z.xml:325-330
+# doc/sl2z.xml:365-370
 gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <modular subgroup of index 6>
 gap> GeneratorsOfGroup(G);
 [ [ [ -1, 0 ], [ 0, -1 ] ], [ [ 1, -2 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 2, 1 ] ] ]
 
-# doc/sl2z.xml:341-349
+# doc/sl2z.xml:381-389
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -75,7 +75,7 @@ gap> G := ModularSubgroup([
 gap> IsCongruence(G);
 true
 
-# doc/sl2z.xml:359-367
+# doc/sl2z.xml:399-407
 gap> G := ModularSubgroup(
 > (1,2)(3,6)(4,8)(5,9)(7,11)(10,13)(12,15)(14,17)(16,19)(18,21)(20,23)(22,24),
 > (1,3,7,4)(2,5)(6,9,8,12,14,10)(11,13,16,20,18,15)(17,21,22,19)(23,24)
@@ -84,7 +84,7 @@ gap> G := ModularSubgroup(
 gap> Cusps(G);
 [ infinity, 0, 1, 2, 3/2, 5/3 ]
 
-# doc/sl2z.xml:378-388
+# doc/sl2z.xml:418-428
 gap> G := ModularSubgroup(
 > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
 > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
@@ -95,7 +95,7 @@ gap> CuspWidth(-1, G);
 gap> CuspWidth(infinity, G);
 3
 
-# doc/sl2z.xml:399-409
+# doc/sl2z.xml:439-449
 gap> G := ModularSubgroup(
 > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
 > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
@@ -106,7 +106,7 @@ false
 gap> CuspsEquivalent(-1, 1/2, G);
 true
 
-# doc/sl2z.xml:420-428
+# doc/sl2z.xml:460-468
 gap> G := ModularSubgroup(
 > (1,2,6,3)(4,11,15,12)(5,13,16,14)(7,17,9,18)(8,19,10,20)(21,24,22,23),
 > (1,4,5)(2,7,8)(3,9,10)(6,15,16)(11,20,21)(12,19,22)(13,23,17)(14,24,18)
@@ -115,13 +115,13 @@ gap> G := ModularSubgroup(
 gap> CosetRepresentativeOfCusp(4, G);
 T*S
 
-# doc/sl2z.xml:439-444
+# doc/sl2z.xml:479-484
 gap> G := ModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <modular subgroup of index 6>
 gap> IndexModN(G, 2);
 6
 
-# doc/sl2z.xml:459-469
+# doc/sl2z.xml:499-509
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -132,7 +132,7 @@ gap> Deficiency(G, 2);
 gap> Deficiency(G, 4);
 1
 
-# doc/sl2z.xml:478-488
+# doc/sl2z.xml:518-528
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -143,7 +143,7 @@ gap> Deficiency(G);
 gap> Deficiency(G, GeneralizedLevel(G));
 1
 
-# doc/sl2z.xml:498-506
+# doc/sl2z.xml:538-546
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -152,7 +152,7 @@ gap> G := ModularSubgroup([
 gap> Projection(G);
 <projective modular subgroup of index 6>
 
-# doc/sl2z.xml:525-533
+# doc/sl2z.xml:565-573
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -161,7 +161,7 @@ gap> G := ModularSubgroup([
 gap> NormalCore(G);
 <modular subgroup of index 48>
 
-# doc/sl2z.xml:542-550
+# doc/sl2z.xml:582-590
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -170,7 +170,7 @@ gap> G := ModularSubgroup([
 gap> QuotientByNormalCore(G);
 <permutation group with 2 generators>
 
-# doc/sl2z.xml:561-569
+# doc/sl2z.xml:601-609
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -179,7 +179,7 @@ gap> G := ModularSubgroup([
 gap> AssociatedCharacterTable(G);
 CharacterTable( <permutation group of size 48 with 2 generators> )
 
-# doc/sl2z.xml:580-590
+# doc/sl2z.xml:620-630
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -190,7 +190,7 @@ false
 gap> IsElementOf([[1,4],[0,1]], G);
 true
 
-# doc/sl2z.xml:601-609
+# doc/sl2z.xml:641-649
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -199,7 +199,7 @@ gap> G := ModularSubgroup([
 gap> IsWordElementOf("S^4 * T^2", G);
 true
 
-# doc/sl2z.xml:620-640
+# doc/sl2z.xml:660-680
 gap> G := ModularSubgroup([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
@@ -220,53 +220,53 @@ T
 gap> IsWordElementOf(S^4 * T^2, G);
 true
 
-# doc/sl2z.xml:651-656
+# doc/sl2z.xml:691-696
 gap> G := ModularSubgroup((1,2),(2,3));
 <modular subgroup of index 3>
 gap> Genus(G);
 0
 
-# doc/sl2z.xml:677-682
+# doc/sl2z.xml:717-722
 gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
 gap> t := (1,4)(2,5,9,10,8)(3,7,6);;
 gap> DefinesCosetActionST(s,t);
 true
 
-# doc/sl2z.xml:695-700
+# doc/sl2z.xml:735-740
 gap> r := (1,9,8,10,7)(2,6)(3,4,5);;
 gap> t := (1,3)(2,4,8,10,5)(6,9,7);;
 gap> DefinesCosetActionRT(r,t);
 true
 
-# doc/sl2z.xml:713-718
+# doc/sl2z.xml:753-758
 gap> s := (1,2)(3,4)(5,6)(7,8)(9,10);;
 gap> j := (1,5,6)(2,3,7)(4,9,10);;
 gap> DefinesCosetActionSJ(s,j);
 true
 
-# doc/sl2z.xml:729-735
-gap> CosetActionFromGenerators([
+# doc/sl2z.xml:769-775
+gap> RightCosetActionFromGenerators([
 > [[1,2],[0,1]],
 > [[1,0],[2,1]]
 > ]);
 [ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
 
-# doc/sl2z.xml:745-749
+# doc/sl2z.xml:789-793
 gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
 gap> STDecomposition(M);
 S^2*T^-1*S^-1*T^2*S^-1*T^-1*S^-1
 
-# doc/sl2z.xml:759-763
+# doc/sl2z.xml:803-807
 gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
 gap> RTDecomposition(M);
 (R*T^-1*R)^2*T^-1*R^-1*(T*R^-1*T)^2*R^-1*T^-1*R^-1*T*R^-1
 
-# doc/sl2z.xml:773-777
+# doc/sl2z.xml:817-821
 gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
 gap> SJDecomposition(M);
 S^3*J*(S^-1*J^-1)^2*S^-1*J*S^-1
 
-# doc/sl2z.xml:788-793
+# doc/sl2z.xml:832-837
 gap> M := [ [ 4, 3 ], [ -3, -2 ] ];;
 gap> STDecompositionAsList(M);
 [ [ "S", 2 ], [ "T", -1 ], [ "S", -1 ], [ "T", 2 ], [ "S", -1 ], [ "T", -1 ],
