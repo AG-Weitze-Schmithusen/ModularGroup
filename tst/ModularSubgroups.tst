@@ -25,7 +25,7 @@ S*T^3*S*T^-2*S*T*S, S*T^-1*S*T*S*T^-4*S, S*T^-1*(T^-1*S*T*S)^2, S*T^-2*S*T^2*S*T
 S*T^2*S*T^-1*S*T*S*T^-2*S ]
 gap> WohlfahrtLevel(G);
 420
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ S^-2, T^-6, T*S*T^-3*S^-1*T*S^-1, S*T^7*S^-1, T^-2*(S*T)^2*S^-1*T^-3, T*S*T^-1*(S*T)^2*S^-1*T^-1*S^-1*T*S^-1, T*S*T^-1*S*T^4*S^-1*T^-2,
 T^-1*S*T^2*S*T^-1*S^-1*T*S^-1*T^-1*S^-1*T, T^-1*S*T^3*S*T^2*S^-1*T^-1*S^-1*T, S*T^2*S*T^-5*S^-1*T*S^-1*T^-1*S^-1,
 S*T^3*(S*T^-1)^2*S^-1*T^3*S^-1, T^-1*S*T*S*T^-6*S^-1*T^2, T^-1*S*T^9*S^-1*T^-1*S^-1, (S*T*S*T^-1)^2*T^-1*S^-1*T^2*S^-1*T^-1*S^-1,
@@ -37,7 +37,7 @@ S*T*S*T^-3*S*T*S*T^-2*S^-1*T*S^-1*T^-1*S^-1*T^2*S^-1, S*T*S*T^-3*S*T^2*S*T^-3*S^
 S*T^3*S*T^-4*S*T*S^-1*T^-2*S^-1*T*S^-1*T^-2, S*T^-1*S*T*S*T^-3*S*T^3*S^-1*T^-1*S^-1*T*S^-1*T^-2*S^-1,
 S*T^-1*S*T*S*T^-4*(T^-1*S^-1*T*S^-1)^2*T^-2*S^-1, S*T^-2*S*T^3*S*T^-3*S^-1*T*S^-1*T^-2*S^-1*T^2*S^-1,
 T^-1*S*T^4*S*T^-2*S*T^-1*S^-1*T*S^-1*T^-2*S^-1*T^2*S^-1, T^-1*S*T^4*S*T^-4*S^-1*T*S^-1*T^-2*S^-1*T^2 ]
-gap> MatrixGeneratorsOfGroup(G);
+gap> GeneratorsOfGroup(G);
 [ [ [ -1, 0 ], [ 0, -1 ] ], [ [ 1, -6 ], [ 0, 1 ] ], [ [ -5, 4 ], [ -4, 3 ] ], [ [ 1, 0 ], [ -7, 1 ] ], [ [ 1, -6 ], [ 0, 1 ] ],
 [ [ -5, 4 ], [ -4, 3 ] ], [ [ 9, -20 ], [ 5, -11 ] ], [ [ 11, 18 ], [ -8, -13 ] ], [ [ 11, 18 ], [ -8, -13 ] ], [ [ 11, 6 ], [ -24, -13 ] ],
 [ [ -1, 0 ], [ 7, -1 ] ], [ [ -13, -28 ], [ 7, 15 ] ], [ [ 11, 10 ], [ -10, -9 ] ], [ [ -17, -12 ], [ 27, 19 ] ], [ [ -7, 16 ], [ -11, 25 ] ],
@@ -156,10 +156,10 @@ gap> GeneralizedLevel(G);
 4
 gap> WohlfahrtLevel(G);
 2
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ T^-2, S*T^-2*S^-1 ]
-gap> MatrixGeneratorsOfGroup(G);
-[ [ [ 1, 2 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 2, 1 ] ] ]
+gap> GeneratorsOfGroup(G);
+[ [ [ 1, -2 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 2, 1 ] ] ]
 gap> SAction(G);
 (1,2,5,3)(4,8,10,9)(6,11,7,12)
 gap> TAction(G);
@@ -193,9 +193,9 @@ gap> GeneralizedLevel(G);
 30
 gap> WohlfahrtLevel(G);
 30
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ S^-2, T^-2, S*T*S*T^-1*S^-1*T*S^-1, (S*T^2)^2*S^-1, S*T^5*S^-1 ]
-gap> MatrixGeneratorsOfGroup(G);
+gap> GeneratorsOfGroup(G);
 [ [ [ -1, 0 ], [ 0, -1 ] ], [ [ 1, -2 ], [ 0, 1 ] ], [ [ 2, -1 ], [ -3, 2 ] ], [ [ 2, -1 ], [ -3, 2 ] ], [ [ 1, 0 ], [ -5, 1 ] ] ]
 gap> NormalCore(G);
 <modular subgroup of index 3628800>

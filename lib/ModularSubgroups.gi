@@ -33,6 +33,46 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+#same as ModularSubgroup constructor, but additionally returns how the permutations sp and tp were
+#rewritten in the standardization (i.e. returns a permutation pi such that new_sp = sp^pi and
+#new_tp = tp^pi). Currently for internal use in VeechGroupAndOrbit calculation in origami only.
+InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
+  local G, type, tab, index, l1, l2, l3, l4, sp_new, tp_new, pi;
+
+  if not DefinesCosetActionST(sp, tp) then
+    Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
+  fi;
+
+  type := NewType(FamilyObj(One(SL(2,Integers))),
+    IsObject and
+    IsMatrixGroup and
+    IsAttributeStoringRep and
+    IsComponentObjectRep and
+    IsFinitelyGeneratedGroup and
+    IsDefaultModularSubgroup);
+
+  index := Maximum(LargestMovedPoint([sp,tp]), 1);
+  l1 := ListPerm(sp, index);    l1[1] := l1[1];
+  l2 := ListPerm(sp^-1, index); l2[1] := l2[1];
+  l3 := ListPerm(tp, index);    l3[1] := l3[1];
+  l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
+  tab := [l1, l2, l3, l4];
+  StandardizeTable(tab);
+
+  sp_new := PermList(tab[1]);
+  tp_new := PermList(tab[3]);
+
+  pi := RepresentativeAction(SymmetricGroup(index), [sp, tp], [sp_new, tp_new], OnTuples);
+
+  G := Objectify(type, rec(
+    s := sp_new,
+    t := tp_new,
+    r := sp_new^-1*tp_new^-1*sp_new,
+    j := sp_new^-1*tp_new^-1
+  ));
+  return [G, pi];
+end);
+
 InstallMethod(ModularSubgroupViaRightAction, [IsPerm, IsPerm], function(sp, tp)
   return ModularSubgroup(sp, tp);
 end);
@@ -100,7 +140,6 @@ InstallOtherMethod(ModularSubgroup, [IsList], function(gens)
 
   a := CosetActionFromGenerators(gens);
   G := ModularSubgroup(a[1], a[2]);
-  SetMatrixGeneratorsOfGroup(G, gens);
   return G;
 end);
 
@@ -415,14 +454,7 @@ InstallMethod(RightCosetRepresentatives, [IsModularSubgroup], function(G)
 end);
 
 InstallMethod(LeftCosetRepresentatives, [IsModularSubgroup], function(G)
-  local ListOfRightRep, List, index, i;
-  ListOfRightRep:=RightCosetRepresentatives(G);
-  index:= Index(G);
-  List:=[];
-  for i in [1..index] do
-    List[i]:= ListOfRightRep[i]^-1;
-  od;
-  return List;
+  return List(RightCosetRepresentatives(G), Inverse);
 end);
 
 # The generalized level of G is defined to be the smallest n for which Deficiency(G, n) is minimal.
@@ -487,7 +519,7 @@ InstallMethod(CongruenceLevel, [IsModularSubgroup], function(G)
   fi;
 end);
 
-InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
+InstallMethod(WordGeneratorsOfGroup, [IsModularSubgroup], function(G)
   local s, t, F2, S, T, SL2Z, coset_table, H, index;
 
   s := SAction(G);
@@ -505,9 +537,9 @@ InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
   return GeneratorsOfGroup(H);
 end);
 
-InstallMethod(MatrixGeneratorsOfGroup, [IsModularSubgroup], function(G)
+InstallOtherMethod(GeneratorsOfGroup, [IsModularSubgroup], function(G)
   local gens, F2, MatS, MatT;
-  gens := ShallowCopy(GeneratorsOfGroup(G));
+  gens := ShallowCopy(WordGeneratorsOfGroup(G));
   F2 := FreeGroup("S", "T");
   MatS := [[0,-1],[1,0]];
   MatT := [[1,1],[0,1]];
@@ -531,9 +563,25 @@ InstallMethod(\in, "for a finite-index subgroup of SL(2,Z)", [IsMatrix, IsModula
   return IsElementOf(A, G);
 end);
 
+InstallMethod(IsWordElementOf, [IsElementOfFpGroup, IsModularSubgroup], function(w, G)
+  local F2, w2, p;
+   F2 := FreeGroup(2);
+   w2 := ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w));
+   p := MappedWord(w2, [F2.1, F2.2], [SAction(G), TAction(G)]);
+   return 1^p = 1;
+end);
+
+InstallMethod(IsWordElementOf, [IsString, IsModularSubgroup], function(w, G)
+  local F2, w2, p;
+   F2 := FreeGroup("S","T");
+	 w2 := ParseRelators(GeneratorsOfGroup(F2), w)[1];
+   p := MappedWord(w2, [F2.1, F2.2], [SAction(G), TAction(G)]);
+   return 1^p = 1;
+end);
+
 InstallMethod(IsSubset, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(H, G)
   local gens, g;
-  gens := MatrixGeneratorsOfGroup(H);
+  gens := GeneratorsOfGroup(H);
   for g in gens do
     if not g in G then
       return false;
@@ -628,7 +676,7 @@ end);
 InstallMethod(IndexModN, [IsModularSubgroup, IsPosInt], function(G, N)
   local gens, SL2Zn, H;
   if N = 1 then return 1; fi;
-  gens := ShallowCopy(MatrixGeneratorsOfGroup(G));
+  gens := ShallowCopy(GeneratorsOfGroup(G));
   Apply(gens, M ->
     [[ZmodnZObj(M[1][1], N), ZmodnZObj(M[1][2], N)],
      [ZmodnZObj(M[2][1], N), ZmodnZObj(M[2][2], N)]]

@@ -47,7 +47,7 @@ gap> RightCosetRepresentatives(G);
   S*T^2*S*T^-1*S*T*S*T^-2*S ]
 gap> GeneralizedLevel(G);
 420
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ T^-6, T*S*T^-3*S^-1*T*S^-1, S*T^7*S^-1, T*S*T^-1*S*T^4*S^-1*T^-2, T^-1*S*T^2*S*T^-1*S^-1*T*S^-1*T^-1*S^-1*T, S*T^2*S*T^-5*S^-1*T*S^-1*T^-1*S^-1,
   T^-1*S*T*S*T^-6*S^-1*T^2, T^-1*S*T^9*S^-1*T^-1*S^-1, (S*T*S*T^-1)^2*T^-1*S^-1*T^2*S^-1*T^-1*S^-1, S*T^-3*S*T^5*S^-1*T^-1*S^-1*T^2*S^-1,
   T^3*S*T^-2*S*T^4*S^-1*T^-3, S*T^-2*S*T^2*S*T^-3*S^-1*T^4*S^-1*T^-1*S^-1, S*T^-2*S*T^4*(T*S^-1*T^-2*S^-1)^2,

@@ -1,15 +1,15 @@
 <Chapter Label="PSL2Z">
-<Heading>Subgroups of <M>PSL_2(&ZZ;)</M></Heading>
+<Heading>Subgroups of <M>\mathrm{PSL}_2(&ZZ;)</M></Heading>
 
-Analogous to finite-index subgroups of <M>SL_2(&ZZ;)</M>, we define a new type
-<C>ProjectiveModularSubgroup</C> for representing subgroups of <M>PSL_2(&ZZ;)</M>.
+Analogous to finite-index subgroups of <M>\mathrm{SL}_2(&ZZ;)</M>, we define a new type
+<C>ProjectiveModularSubgroup</C> for representing subgroups of <M>\mathrm{PSL}_2(&ZZ;)</M>.
 It consists essentially of two permutations <M>\sigma_{\overline{S}}</M> and
 <M>\sigma_{\overline{T}}</M> describing the action of <M>\overline{S}</M> and
 <M>\overline{T}</M> on the cosets of the given subgroup, where <M>\overline{S}</M>
-and <M>\overline{T}</M> are the images of <M>S</M> and <M>T</M> in <M>PSL_2(&ZZ;)</M>.
+and <M>\overline{T}</M> are the images of <M>S</M> and <M>T</M> in <M>\mathrm{PSL}_2(&ZZ;)</M>.
 <Br/>
-The methods implemented for <M>PSL_2(&ZZ;)</M> subgroups are mostly the
-same as for <M>SL_2(&ZZ;)</M> subgroups and behave more or less identically.
+The methods implemented for <M>\mathrm{PSL}_2(&ZZ;)</M> subgroups are mostly the
+same as for <M>\mathrm{SL}_2(&ZZ;)</M> subgroups and behave more or less identically.
 Nevertheless we list them here.
 
 <Section Label="ProjectiveModularSubgroupConstr">
@@ -22,7 +22,7 @@ Nevertheless we list them here.
   <Returns>A projective modular subgroup.</Returns>
   <Description>
     Constructs a <C>ProjectiveModularSubgroup</C> object corresponding to the
-    finite-index subgroup of <M>PSL_2(&ZZ;)</M> described by the permutations
+    finite-index subgroup of <M>\mathrm{PSL}_2(&ZZ;)</M> described by the permutations
     <A>s</A> and <A>t</A>. <Br/>
     This constructor tests if the given permutations actually describe the
     coset action of <M>\overline{S}</M> and <M>\overline{T}</M> on some subgroup
@@ -40,9 +40,9 @@ gap> G := ProjectiveModularSubgroup(
 ]]></Example>
 
     If you want to construct a <C>ProjectiveModularSubgroup</C> from a list of
-    generators, you can lift each generator to a matrix in <M>SL_2(&ZZ;)</M>,
+    generators, you can lift each generator to a matrix in <M>\mathrm{SL}_2(&ZZ;)</M>,
     construct from these a <C>ModularSubgroup</C>, and then project it to
-    <M>PSL_2(&ZZ;)</M> via <C>Projection</C>.
+    <M>\mathrm{PSL}_2(&ZZ;)</M> via <C>Projection</C>.
   </Description>
 
 </ManSection>
@@ -76,7 +76,7 @@ gap> G := ProjectiveModularSubgroup(
   <Returns>A natural number.</Returns>
   <Description>
     For a given projective modular subgroup <A>G</A> this method returns its index in
-    <M>PSL_2(&ZZ;)</M>. As <A>G</A> is internally stored as permutations
+    <M>\mathrm{PSL}_2(&ZZ;)</M>. As <A>G</A> is internally stored as permutations
     <M>(s,t)</M> this is just
     <Verb>
       LargestMovedPoint(s,t)
@@ -126,7 +126,7 @@ gap> RightCosetRepresentatives(G);
 ]]></Example>
 
 <ManSection>
-  <Attr Name="GeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
+  <Attr Name="WordGeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
   <Returns>A list of words.</Returns>
   <Description>
     Calculates a list of generators (as words in <M>\overline{S}</M> and
@@ -137,7 +137,7 @@ gap> RightCosetRepresentatives(G);
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2)(3,5)(4,6), (1,3)(2,4)(5,6));
 <projective modular subgroup of index 6>
-gap> GeneratorsOfGroup(G);
+gap> WordGeneratorsOfGroup(G);
 [ T^-2, S*T^-2*S^-1 ]
 ]]></Example>
 
@@ -243,9 +243,9 @@ T*S
   <Oper Name="LiftToSL2ZEven" Arg="G" />
   <Returns>A modular subgroup.</Returns>
   <Description>
-    Lifts a given subgroup <A>G</A> of <M>PSL_2(&ZZ;)</M> to an even subgroup of
-    <M>SL_2(&ZZ;)</M>, i.e. a group that contains <M>-1</M> and whose projection
-    to <M>PSL_2(&ZZ;)</M> is <A>G</A>.
+    Lifts a given subgroup <A>G</A> of <M>\mathrm{PSL}_2(&ZZ;)</M> to an even subgroup of
+    <M>\mathrm{SL}_2(&ZZ;)</M>, i.e. a group that contains <M>-1</M> and whose projection
+    to <M>\mathrm{PSL}_2(&ZZ;)</M> is <A>G</A>.
   </Description>
 </ManSection>
 <Example><![CDATA[
@@ -262,9 +262,9 @@ gap> LiftToSL2ZEven(G);
   <Oper Name="LiftToSL2ZOdd" Arg="G" />
   <Returns>A modular subgroup.</Returns>
   <Description>
-    Lifts a given subgroup <A>G</A> of <M>PSL_2(&ZZ;)</M> to an odd subgroup of
-    <M>SL_2(&ZZ;)</M>, i.e. a group that does not contain <M>-1</M> and whose
-    projection to <M>PSL_2(&ZZ;)</M> is <A>G</A>.
+    Lifts a given subgroup <A>G</A> of <M>\mathrm{PSL}_2(&ZZ;)</M> to an odd subgroup of
+    <M>\mathrm{SL}_2(&ZZ;)</M>, i.e. a group that does not contain <M>-1</M> and whose
+    projection to <M>\mathrm{PSL}_2(&ZZ;)</M> is <A>G</A>.
   </Description>
 </ManSection>
 <Example><![CDATA[
@@ -283,7 +283,7 @@ gap> LiftToSL2ZOdd(G);
   <Description>
     For a projective modular subgroup <A>G</A> and a natural number <A>N</A> this method
     calculates the index of the projection <M>\bar{G}</M> of <M>G</M> in
-    <M>PSL_2(&ZZ;/N&ZZ;)</M>.
+    <M>\mathrm{PSL}_2(&ZZ;/N&ZZ;)</M>.
   </Description>
 </ManSection>
 <Example><![CDATA[
@@ -304,7 +304,7 @@ gap> IndexModN(G, 2);
     For a projective modular subgroup <A>G</A> and a natural number <A>N</A> this method
     calculates the so-called <Emph>deficiency</Emph> of <A>G</A> from being a
     congruence subgroup of level <A>N</A>. <Br/>
-    The deficiency of a finite-index subgroup <M>\Gamma</M> of <M>PSL_2(&ZZ;)</M>
+    The deficiency of a finite-index subgroup <M>\Gamma</M> of <M>\mathrm{PSL}_2(&ZZ;)</M>
     was introduced in <Cite Key="weitze_schmithuesen_deficiency" />. It is defined
     as the index <M>[\Gamma(N) \colon \Gamma(N) \cap \Gamma]</M> where <M>\Gamma(N)</M>
     is the principal congruence subgroup of level <M>N</M>.
@@ -344,7 +344,7 @@ gap> Deficiency(G, GeneralizedLevel(G));
   <Oper Name="Conjugate" Label="ConjugatePSL2Z" Arg="G, A" />
   <Returns>A ProjectiveModularSubgroup.</Returns>
   <Description>
-    Conjugates the group <A>G</A> by (the redidue class in <M>PSL_2(&ZZ;)</M> of)
+    Conjugates the group <A>G</A> by (the redidue class in <M>\mathrm{PSL}_2(&ZZ;)</M> of)
     <A>A</A> and returns the group <M>A^{-1}*G*A</M>.
   </Description>
 </ManSection>
@@ -353,8 +353,8 @@ gap> Deficiency(G, GeneralizedLevel(G));
   <Attr Name="NormalCore" Label="NormalCorePSL2Z" Arg="G" />
   <Returns>A projective modular subgroup.</Returns>
   <Description>
-    Calculates the normal core of <A>G</A> in <M>PSL_2(&ZZ;)</M>, i.e. the maximal
-    subgroup of <A>G</A> that is normal in <M>PSL_2(&ZZ;)</M>.
+    Calculates the normal core of <A>G</A> in <M>\mathrm{PSL}_2(&ZZ;)</M>, i.e. the maximal
+    subgroup of <A>G</A> that is normal in <M>\mathrm{PSL}_2(&ZZ;)</M>.
   </Description>
 </ManSection>
 <Example><![CDATA[
@@ -371,7 +371,7 @@ gap> NormalCore(G);
   <Attr Name="QuotientByNormalCore" Label="QuotientByNormalCorePSL2Z" Arg="G" />
   <Returns>A finite group.</Returns>
   <Description>
-    Calculates the quotient of <M>PSL_2(&ZZ;)</M> by the normal core of <A>G</A>.
+    Calculates the quotient of <M>\mathrm{PSL}_2(&ZZ;)</M> by the normal core of <A>G</A>.
   </Description>
 </ManSection>
 <Example><![CDATA[
@@ -388,7 +388,7 @@ gap> QuotientByNormalCore(G);
   <Attr Name="AssociatedCharacterTable" Label="AssociatedCharacterTablePSL2Z" Arg="G" />
   <Returns>A character table.</Returns>
   <Description>
-    Returns the character table of <M>PSL_2(&ZZ;)/N</M> where <M>N</M> is the normal core
+    Returns the character table of <M>\mathrm{PSL}_2(&ZZ;)/N</M> where <M>N</M> is the normal core
     of <A>G</A>.
   </Description>
 </ManSection>
@@ -407,7 +407,7 @@ CharacterTable( <permutation group of size 3456 with 2 generators> )
   <Oper Name="IsElementOf" Label="IsElementOfPSL2Z" Arg="A, G" />
   <Returns>True or false.</Returns>
   <Description>
-    This function checks if the image of a given matrix <A>A</A> in <M>PSL_2(&ZZ;)</M>
+    This function checks if the image of a given matrix <A>A</A> in <M>\mathrm{PSL}_2(&ZZ;)</M>
     is an element of the group <A>G</A>.
   </Description>
 </ManSection>
@@ -418,6 +418,50 @@ gap> IsElementOf([[1,1],[0,1]], G);
 true
 gap> IsElementOf([[0,-1],[1,0]], G);
 false
+]]></Example>
+
+
+<ManSection>
+  <Oper Name="IsWordElementOf" Label="IsWordElementOfPSL2ZString" Arg="s, G" />
+  <Returns>True or false.</Returns>
+  <Description>
+    This function checks if a given string <A>s</A> represents an element of the
+    group <A>G</A>, written in the generators <A>S</A> and <A>T</A>.
+  </Description>
+</ManSection>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> IsWordElementOf("S^2 * T", G);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Name="IsWordElementOf" Label="IsWordElementOfPSL2Z" Arg="w, G" />
+  <Returns>True or false.</Returns>
+  <Description>
+    This function checks if a given word <A>w</A> in the generators <A>S</A> and <A>T</A>
+    represents an element of the group <A>G</A>.
+  </Description>
+</ManSection>
+<Example><![CDATA[
+gap> G := ProjectiveModularSubgroup((1,2),(2,3));
+<projective modular subgroup of index 3>
+gap> F := FreeGroup("S", "T");
+<free group on the generators [ S, T ]>
+gap> S := F.1;
+S
+gap> T := F.2;
+T
+gap> PSL2Z := F / ParseRelators([S, T], "S^2, (S*T)^3");
+<fp group on the generators [ S, T ]>
+gap> S := GeneratorsOfGroup(PSL2Z)[1];
+S
+gap> T := GeneratorsOfGroup(PSL2Z)[2];
+T
+gap> IsWordElementOf(S^2 * T, G);
+true
 ]]></Example>
 
 
