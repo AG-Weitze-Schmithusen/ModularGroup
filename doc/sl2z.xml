@@ -66,7 +66,7 @@ gap> G := ModularSubgroupViaRightAction(
 > (1,2)(3,4)(5,6)(7,8)(9,10),
 > (1,4)(2,5,9,10,8)(3,7,6));
 <modular subgroup of index 10>
-]]></Example><Br/>
+]]></Example>
   </Description>
   
     <Oper Name="ModularSubgroupViaLeftAction" Arg="s, t" />
@@ -133,7 +133,7 @@ gap> G := ModularSubgroupRTViaRightAction(
 > (1,9,8,10,7)(2,6)(3,4,5),
 > (1,4)(2,5,9,10,8)(3,7,6));
 <modular subgroup of index 10>
-]]></Example><Br/>
+]]></Example>
   </Description>
   <Oper Name="ModularSubgroupRTViaLeftAction" Arg="r, t" />
   <Returns>A modular subgroup.</Returns>
@@ -185,7 +185,7 @@ gap> G := ModularSubgroupSJViaRightAction(
 > (1,2)(3,6)(4,7)(5,9)(8,10),
 > (1,5,6)(2,3,7)(4,9,10));
 <modular subgroup of index 10>
-]]></Example><Br/>
+]]></Example>
   </Description>
   <Oper Name="ModularSubgrouSJViaLeftAction" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
@@ -715,14 +715,14 @@ true
     Takes a list of generator matrices and calculates the coset graph (as two
     permutations <M>\sigma_S</M> and <M>\sigma_T</M>) of the generated subgroup
     of <M>SL_2(&ZZ;)</M>.
-    <Example><![CDATA[
-      gap> RightCosetActionFromGenerators([
-      > [[1,2],[0,1]],
-      > [[1,0],[2,1]]
-      > ]);
-      [ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
-      ]]></Example><Br/>
-  </Description>
+<Example><![CDATA[
+gap> RightCosetActionFromGenerators([
+> [[1,2],[0,1]],
+> [[1,0],[2,1]]
+> ]);
+[ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
+]]></Example>
+</Description>
   <Oper Name="LeftCosetActionFromGenerators" Arg="gens" />
   <Returns>A tuple of permutations.</Returns>
 </ManSection>
