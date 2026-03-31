@@ -9,7 +9,7 @@ SetPackageInfo( rec(
 PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
 Version := "2.0.1",
-Date := "25/03/2026", ## dd/mm/yyyy
+Date := "31/03/2026", ## dd/mm/yyyy
 License := "GPL-3.0-or-later",
 
 PackageWWWHome :=
@@ -49,7 +49,7 @@ rec(
     LastName      := "Junk",
     FirstNames    := "Luca Leon",
     IsAuthor      := true,
-    IsMaintainer  := true,
+    IsMaintainer  := false,
     Email         := "junk@math.uni-sb.de",
     WWWHome       := "https://www.uni-saarland.de/lehrstuhl/weber-moritz/team/luca-junk.html",
     PostalAddress := Concatenation( [
