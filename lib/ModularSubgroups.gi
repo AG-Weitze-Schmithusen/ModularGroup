@@ -37,7 +37,7 @@ end);
 #rewritten in the standardization (i.e. returns a permutation pi such that new_sp = sp^pi and
 #new_tp = tp^pi). Currently for internal use in VeechGroupAndOrbit calculation in origami only.
 InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
-  local G, type, tab, index, l1, l2, l3, l4, sp_new, tp_new, pi;
+  local G, type, tab, index, l1, l2, l3, l4, pi, tab_old, RecoverStandardizationPerm;
 
   if not DefinesCosetActionST(sp, tp) then
     Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
@@ -57,18 +57,102 @@ InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
   l3 := ListPerm(tp, index);    l3[1] := l3[1];
   l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
   tab := [l1, l2, l3, l4];
+  tab_old := StructuralCopy(tab);
   StandardizeTable(tab);
 
-  sp_new := PermList(tab[1]);
-  tp_new := PermList(tab[3]);
+  sp := PermList(tab[1]);
+  tp := PermList(tab[3]);
 
-  pi := RepresentativeAction(SymmetricGroup(index), [sp, tp], [sp_new, tp_new], OnTuples);
+  RecoverStandardizationPerm := function( arg )
+    local old, new, standard, nrows, ncos, scanrows, oldToNew, queue, head, next, c, r, x, perm;
+
+    if Length(arg) < 2 or Length(arg) > 3 then
+        Error("usage: RecoverStandardizationPerm( old, new[, standard] )");
+    fi;
+
+    old := arg[1];
+    new := arg[2];
+    if Length(arg) = 3 then
+        standard := arg[3];
+    else
+        standard := CosetTableStandard;
+    fi;
+
+    if not IsList(old) or Length(old) = 0 then
+        Error("old must be a non-empty coset table");
+    fi;
+    if not IsList(new) or Length(new) = 0 then
+        Error("new must be a non-empty coset table");
+    fi;
+
+    nrows := Length(old);
+    ncos  := Length(old[1]);
+
+    if Length(new) <> nrows or Length(new[1]) <> ncos then
+        Error("old and new must have the same dimensions");
+    fi;
+
+    if standard = "lenlex" then
+        scanrows := [1..nrows];
+    elif standard = "semilenlex" then
+        scanrows := Filtered([1..nrows], i -> i mod 2 = 1);
+    else
+        Error("standard must be \"lenlex\" or \"semilenlex\"");
+    fi;
+
+    oldToNew := List([1..ncos], i -> 0);
+    oldToNew[1] := 1;
+
+    queue := [ 1 ];
+    head := 1;
+    next := 1;
+
+    while head <= Length(queue) do
+        c := queue[head];
+        head := head + 1;
+
+        for r in scanrows do
+            x := old[r][c];
+            if x <> 0 and oldToNew[x] = 0 then
+                next := next + 1;
+                oldToNew[x] := next;
+                Add(queue, x);
+            fi;
+        od;
+    od;
+
+    if ForAny(oldToNew, i -> i = 0) then
+        Error("could not recover a complete relabeling");
+    fi;
+
+    perm := PermList(oldToNew);
+
+    # Optional consistency check against the supplied new table.
+    for r in [1..nrows] do
+        for c in [1..ncos] do
+            x := old[r][c];
+            if x = 0 then
+                if new[r][oldToNew[c]] <> 0 then
+                    Error("tables are not related by this standardization");
+                fi;
+            else
+                if new[r][oldToNew[c]] <> oldToNew[x] then
+                    Error("tables are not related by this standardization");
+                fi;
+            fi;
+        od;
+    od;
+
+    return perm;
+  end;
+   
+  pi := RecoverStandardizationPerm(tab_old, tab);
 
   G := Objectify(type, rec(
-    s := sp_new,
-    t := tp_new,
-    r := sp_new^-1*tp_new^-1*sp_new,
-    j := sp_new^-1*tp_new^-1
+    s := sp,
+    t := tp,
+    r := sp^-1*tp^-1*sp,
+    j := sp^-1*tp^-1
   ));
   return [G, pi];
 end);
