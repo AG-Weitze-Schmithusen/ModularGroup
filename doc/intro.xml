@@ -52,6 +52,11 @@ Note that such a representation as a tuple of permutations is only unique up to
 relabelling of the cosets, i.e. up to simultaneous conjugation (fixing the
 <M>1</M> coset by our convention).
 
+To not restrict &ModularGroup; to right multiplication on right cosets, getters
+and setters are defined in two versions: one by right multiplication on right
+cosets ("<C>ViaRightAction</C>") and one by left multiplication on left cosets
+("<C>ViaLeftAction</C>").
+
 </Section>
 
 
