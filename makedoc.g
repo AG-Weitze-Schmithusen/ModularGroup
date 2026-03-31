@@ -8,7 +8,10 @@ fi;
 
 AutoDoc(rec(
     gapdoc := rec(main := "manual.xml"),
-    scaffold := false,
+    scaffold := rec(
+        TitlePage := false,
+        MainPage := false,
+    ),
     autodoc := true,
     extract_examples := true,
 ));
