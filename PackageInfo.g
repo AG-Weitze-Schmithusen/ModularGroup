@@ -135,9 +135,12 @@ AutoDoc := rec(
 
 
 Dependencies := rec(
-  GAP := "4.5.3",
+  GAP := "4.12",
 
-  NeededOtherPackages := [["GAPDoc", ">= 1.5"], ["CTblLib", ">= 1.2.2"], ["Congruence", ">=1.1.1"]],
+  NeededOtherPackages := [
+    ["CTblLib", ">= 1.2.2"],
+    ["Congruence", ">=1.1.1"],
+  ],
 
   ExternalConditions := []
 

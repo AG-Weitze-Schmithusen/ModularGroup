@@ -3,3 +3,4 @@ doc/*
 !doc/*.bib
 doc/_*.xml
 
+tst/modulargroup*.tst
