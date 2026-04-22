@@ -1,122 +1,103 @@
-################################################################################
-##                                                                            ##
-##  PackageInfo.g        The `ModularGroup' package                 Luca Junk ##
-##                                                                            ##
-################################################################################
+#############################################################################
+##  
+##  Demo PackageInfo.g for the GitHubPagesForGAP
+##
 
 SetPackageInfo( rec(
 
-PackageName := "ModularGroup",
-Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
-Version := "2.0.0",
-Date := "14/07/2022", ## dd/mm/yyyy
+PackageName := "GitHubPagesForGAP",
 
-##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "2.0.0">
-##  <!ENTITY RELEASEDATE "14 July 2022">
-##  <!ENTITY RELEASEYEAR "2022">
-##  <#/GAPDoc>
-
-PackageWWWHome :=
-  Concatenation( "https://ag-weitze-schmithusen.github.io/", ~.PackageName ),
-
-SourceRepository := rec(
-    Type := "git",
-    URL := Concatenation( "https://github.com/ag-weitze-schmithusen/", ~.PackageName ),
-),
-IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-SupportEmail := "weitze@math.uni-sb.de",
-
-ArchiveURL := Concatenation( ~.SourceRepository.URL,
-                                 "/releases/download/v", ~.Version,
-                                 "/", ~.PackageName, "-", ~.Version ),
-
-ArchiveFormats := ".tar.gz",
-
+Subtitle := "A GitHub Pages generator for GAP packages",
+Version := "0.4",
+Date := "10/04/2025", # dd/mm/yyyy format
+License := "0BSD",
 
 Persons := [
   rec(
-    LastName      := "Junk",
-    FirstNames    := "Luca Leon",
+    LastName      := "Horn",
+    FirstNames    := "Max",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "junk@math.uni-sb.de",
-    WWWHome       := "https://www.uni-saarland.de/lehrstuhl/weber-moritz/team/luca-junk.html",
-    PostalAddress := Concatenation( [
-                       "Saarland University\n",
-                       "Department of Mathematics\n",
-                       "Postfach 15 11 50\n",
-                       "66041 Saarbrücken\n",
-                       "Germany" ] ),
-    Place         := "Saarbrücken",
-    Institution   := "Universität des Saarlandes"
+    Email         := "mhorn@rptu.de",
+    WWWHome       := "https://www.quendi.de/math",
+    GitHubUsername:= "fingolfin",
+    PostalAddress := Concatenation(
+                       "Fachbereich Mathematik\n",
+                       "RPTU Kaiserslautern-Landau\n",
+                       "Gottlieb-Daimler-Straße 48\n",
+                       "67663 Kaiserslautern\n",
+                       "Germany" ),
+    Place         := "Kaiserslautern, Germany",
+    Institution   := "RPTU Kaiserslautern-Landau"
   ),
-  rec(
-    LastName      := "Weitze-Schmithüsen",
-    FirstNames    := "Gabriela",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "weitze@math.uni-sb.de",
-    WWWHome       := "http://www.math.uni-sb.de/ag/weitze/",
-    PostalAddress := Concatenation( [
-                       "AG Weitze-Schmithüsen\n",
-                       "FR 6.1 Mathematik\n",
-                       "Universität des Saarlandes\n",
-                       "D-66041 Saarbrücken" ] ),
-    Place         := "Saarbrücken",
-    Institution   := "Universität des Saarlandes"
-  )
 
+  rec(
+    LastName      := "Thor",
+    FirstNames    := "A. U.",
+    IsAuthor      := true,
+    IsMaintainer  := false,
+    #Email         := "author@example.com",
+  ),
+
+  rec(
+    LastName      := "Itor",
+    FirstNames    := "Jan",
+    IsAuthor      := false,
+    IsMaintainer  := true,
+    #Email         := "janitor@example.com",
+  ),
 ],
 
 Status := "other",
 
-README_URL :=
-  Concatenation( ~.PackageWWWHome, "/README.md" ),
-PackageInfoURL :=
-  Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+# The following are not strictly necessary in your own PackageInfo.g
+# (in the sense that update.g only looks at the usual fields
+# like PackageWWWHome, ArchiveURL etc.). But they are convenient
+# if you use exactly the scheme for your package website that we propose.
+GithubUser := "gap-system",
+GithubRepository := ~.PackageName,
+GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
 
+PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
+README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+# The following assumes you are using the Github releases system. If not, adjust
+# it accordingly.
+ArchiveURL     := Concatenation(~.GithubWWW,
+                    "/releases/download/v", ~.Version, "/",
+                    ~.GithubRepository, "-", ~.Version),
 
-AbstractHTML :=
-  "This package provides a collection of algorithms for computing with \
-  finite-index subgroups of (P)SL(2,Z).",
+ArchiveFormats := ".tar.gz .tar.bz2",
 
+AbstractHTML := 
+  "This is a pseudo package that contains no actual\
+  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
+  GAP packages that allows to quickly setup GitHub Pages.",
 
 PackageDoc := rec(
-  BookName  := "ModularGroup",
+  BookName  := "GitHubPagesForGAP",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := ~.Subtitle,
+  LongTitle := "A GitHub Pages generator for GAP packages",
 ),
 
-
+# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := "4.5.3",
-
-  NeededOtherPackages := [["GAPDoc", ">= 1.5"], ["CTblLib", ">= 1.2.2"]],
-
-  SuggestedOtherPackages := [["Congruence", ">=1.1.1"]],
-
+  GAP := ">=4.8.1",
+  NeededOtherPackages := [
+    ["GAPDoc", ">= 1.2"],
+    ["IO", ">= 4.1"],
+  ],
+  SuggestedOtherPackages := [["orb", ">= 4.2"]],
   ExternalConditions := []
-
 ),
 
 AvailabilityTest := ReturnTrue,
 
-BannerString := Concatenation(
-    "----------------------------------------------------------------\n",
-    "Loading  ModularGroup ", ~.Version, "\n",
-    "by ",
-    JoinStringsWithSeparator( List( Filtered( ~.Persons, r -> r.IsAuthor ),
-                                    r -> Concatenation(
-        r.FirstNames, " ", r.LastName, " (", r.WWWHome, ")\n" ) ), "   " ),
-    "For help, type: ?ModularGroup package \n",
-    "----------------------------------------------------------------\n" ),
-
-TestFile := "tst/testall.g",
-
-Keywords := ["PSL(2,Z)", "PSL2Z", "SL(2,Z)", "SL2Z", "modular group", "congruence subgroup"]
+Keywords := ["GitHub Pages", "GAP"]
 
 ));
+
+
