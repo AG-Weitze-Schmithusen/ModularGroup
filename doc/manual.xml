@@ -8,7 +8,7 @@
 
 <TitlePage>
   <Title>The <Package>ModularGroup</Package> Package</Title>
-  <Subtitle>Finite-index subgroups of <M>\mathrm{(P)SL}_2(&ZZ;)</M></Subtitle>
+  <Subtitle>Finite-index subgroups of <M>{\rm (P)SL}_2(&ZZ;)</M></Subtitle>
   <Date>&RELEASEDATE;</Date>
   <Version>Version &VERSION;</Version>
   <Author>Sebastian Engelhardt

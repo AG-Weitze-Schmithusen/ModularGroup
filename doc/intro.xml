@@ -4,20 +4,20 @@
 <Section Label="IntroAims">
 <Heading>General aims of the &ModularGroup; package</Heading>
 This &GAP; package provides methods for computing with finite-index subgroups of
-the modular groups <M>\mathrm{SL}_2(&ZZ;)</M> and <M>\mathrm{PSL}_2(&ZZ;)</M>. This includes,
+the modular groups <M>{\rm SL}_2(&ZZ;)</M> and <M>{\rm PSL}_2(&ZZ;)</M>. This includes,
 but is not limited to, computation of the generalized level, index or cusp widths.
 It also implements algorithms described in <Cite Key="hsu_1996"/> and
 <Cite Key="hamilton_loeffler_2014"/> for testing if a given group is a congruence
 subgroup. Hence it differs from the <URL Text="Congruence">https://gap-packages.github.io/congruence/</URL>
 package <Cite Key="congruence_package"/>, which can be used - among other things - to construct canonical congruence
-subgroups of <M>\mathrm{SL}_2(&ZZ;)</M>.
+subgroups of <M>{\rm SL}_2(&ZZ;)</M>.
 
 </Section>
 
 <Section Label="IntroTech">
 <Heading>Technicalities</Heading>
-A convenient way to represent finite-index subgroups of <M>\mathrm{SL}_2(&ZZ;)</M> is by
-specifying the action of generator matrices of <M>\mathrm{SL}_2(&ZZ;)</M> on the right
+A convenient way to represent finite-index subgroups of <M>{\rm SL}_2(&ZZ;)</M> is by
+specifying the action of generator matrices of <M>{\rm SL}_2(&ZZ;)</M> on the right
 cosets by right multiplication. For example, one could choose the generators
 <Alt Only="LaTeX">
   <![CDATA[
