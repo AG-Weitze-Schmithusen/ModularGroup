@@ -219,6 +219,7 @@ gap> G := ModularSubgroup([
 
 <ManSection>
   <Heading>SAction</Heading>
+  <Oper Name="SAction" Arg="G" />
   <Oper Name="SRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -231,6 +232,7 @@ gap> G := ModularSubgroup([
   
 <ManSection>
   <Heading>TAction</Heading>
+  <Oper Name="TAction" Arg="G" />
   <Oper Name="TRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -243,6 +245,7 @@ gap> G := ModularSubgroup([
   
 <ManSection>
   <Heading>RAction</Heading>
+  <Oper Name="RAction" Arg="G" />
   <Oper Name="RRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -255,6 +258,7 @@ gap> G := ModularSubgroup([
   
 <ManSection>
   <Heading>JAction</Heading>
+  <Oper Name="JAction" Arg="G" />
   <Oper Name="JRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
