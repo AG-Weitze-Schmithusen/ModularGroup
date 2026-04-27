@@ -219,25 +219,25 @@ gap> G := ModularSubgroup([
 
 <ManSection>
   <Heading>SAction</Heading>
-  <Oper Name="SRightAction" Label="SActionSL2Z" Arg="G" />
+  <Oper Name="SRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_S</M> describing the action of the matrix
     <M>S</M> on the cosets of <A>G</A>.
   </Description>
-  <Oper Name="SLeftAction" Label="SActionSL2Z" Arg="G" />
+  <Oper Name="SLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
 </ManSection>
   
 <ManSection>
   <Heading>TAction</Heading>
-  <Oper Name="TRightAction" Label="TActionSL2Z" Arg="G" />
+  <Oper Name="TRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_T</M> describing the action of the matrix
     <M>T</M> on the cosets of <A>G</A>.
   </Description>
-  <Oper Name="TLeftAction" Label="TActionSL2Z" Arg="G" />
+  <Oper Name="TLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
 </ManSection>
   
