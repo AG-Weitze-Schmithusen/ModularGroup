@@ -19,7 +19,7 @@ generators.
 <Heading>Construction of modular subgroups</Heading>
 
 <ManSection>
-  <Heading > ModularSubgroup </Heading>
+  <Heading>ModularSubgroup</Heading>
   <Oper Name="ModularSubgroupViaRightAction" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -74,7 +74,7 @@ gap> G := ModularSubgroupViaRightAction(
 </ManSection>
   
 <ManSection>
-  <Heading > ModularSubgroupST </Heading>
+  <Heading>ModularSubgroupST</Heading>
   <Oper Name="ModularSubgroupSTViaRightAction" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -88,7 +88,7 @@ gap> G := ModularSubgroupViaRightAction(
 </ManSection>
   
 <ManSection>
-  <Heading > ModularSubgroupRT </Heading>
+  <Heading>ModularSubgroupRT</Heading>
   <Oper Name="ModularSubgroupRTViaRightAction" Arg="r, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -140,7 +140,7 @@ gap> G := ModularSubgroupRTViaRightAction(
 </ManSection>
   
 <ManSection>
-  <Heading > ModularSubgroupSJ </Heading>
+  <Heading>ModularSubgroupSJ</Heading>
   <Oper Name="ModularSubgrouSJViaRightAction" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
   <Description>
@@ -218,7 +218,7 @@ gap> G := ModularSubgroup([
   <Heading>Getters for the coset action</Heading>
 
 <ManSection>
-  <Heading > SAction </Heading>
+  <Heading>SAction</Heading>
   <Oper Name="SRightAction" Label="SActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -230,7 +230,7 @@ gap> G := ModularSubgroup([
 </ManSection>
   
 <ManSection>
-  <Heading > TAction </Heading>
+  <Heading>TAction</Heading>
   <Oper Name="TRightAction" Label="TActionSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -242,7 +242,7 @@ gap> G := ModularSubgroup([
 </ManSection>
   
 <ManSection>
-  <Heading > RAction </Heading>
+  <Heading>RAction</Heading>
   <Oper Name="RRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -254,7 +254,7 @@ gap> G := ModularSubgroup([
 </ManSection>
   
 <ManSection>
-  <Heading > JAction </Heading>
+  <Heading>JAction</Heading>
   <Oper Name="JRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
@@ -266,7 +266,7 @@ gap> G := ModularSubgroup([
 </ManSection>
   
 <ManSection>
-  <Heading > CosetActionOf </Heading>
+  <Heading>CosetActionOf</Heading>
   <Oper Name="CosetRightActionOf" Arg="A, G" />
   <Returns>A permutation.</Returns>
   <Description>
