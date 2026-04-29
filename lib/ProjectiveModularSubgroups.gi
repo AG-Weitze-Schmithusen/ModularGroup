@@ -28,6 +28,14 @@ InstallMethod(ProjectiveModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+InstallMethod(ProjectiveModularSubgroupViaRightAction, [IsPerm, IsPerm], function(sp, tp)
+  return ProjectiveModularSubgroup(sp, tp);
+end);
+
+InstallMethod(ProjectiveModularSubgroupViaLeftAction, [IsPerm, IsPerm], function(sp, tp)
+  return ProjectiveModularSubgroup(sp^-1, tp^-1);
+end);
+
 InstallMethod(DefinesProjectiveCosetAction, [IsPerm, IsPerm], function(s, t)
   local index;
 
@@ -44,8 +52,24 @@ InstallMethod(SAction, [IsProjectiveModularSubgroup], function(G)
   return G!.s;
 end);
 
+InstallMethod(SRightAction, [IsProjectiveModularSubgroup], function(G)
+  return G!.s;
+end);
+
+InstallMethod(SLeftAction, [IsProjectiveModularSubgroup], function(G)
+  return (G!.s)^-1;
+end);
+
 InstallMethod(TAction, [IsProjectiveModularSubgroup], function(G)
   return G!.t;
+end);
+
+InstallMethod(TRightAction, [IsProjectiveModularSubgroup], function(G)
+  return G!.t;
+end);
+
+InstallMethod(TLeftAction, [IsProjectiveModularSubgroup], function(G)
+  return (G!.t)^-1;
 end);
 
 InstallMethod(CosetActionOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
@@ -61,6 +85,14 @@ InstallMethod(CosetActionOf, [IsMatrix, IsProjectiveModularSubgroup], function(A
   F2 := FreeGroup(2);
   w := ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w));
   return MappedWord(w, [F2.1, F2.2], [SAction(G), TAction(G)]);
+end);
+
+InstallMethod(CosetRightActionOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
+  return CosetActionOf(A, G);
+end);
+
+InstallMethod(CosetLeftActionOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
+  return CosetActionOf(A, G)^-1;
 end);
 
 InstallMethod(IsElementOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
@@ -180,6 +212,10 @@ InstallMethod(RightCosetRepresentatives, [IsProjectiveModularSubgroup], function
   #H := PreImage(hom, Stabilizer(Image(hom), 1));
 
   return AsList(RightTransversal(PSL2Z, H));
+end);
+
+InstallMethod(LeftCosetRepresentatives, [IsProjectiveModularSubgroup], function(G)
+  return List(RightCosetRepresentatives(G), Inverse);
 end);
 
 InstallMethod(WordGeneratorsOfGroup, [IsProjectiveModularSubgroup], function(G)

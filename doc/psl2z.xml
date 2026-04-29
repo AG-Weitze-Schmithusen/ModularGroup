@@ -16,9 +16,9 @@ Nevertheless we list them here.
 <Heading>Construction of projective modular subgroups</Heading>
 
 <ManSection>
-  <Heading>Constructors</Heading>
+  <Heading>ProjectiveModularSubgroup</Heading>
 
-  <Oper Name="ProjectiveModularSubgroup" Arg="s, t" />
+  <Oper Name="ProjectiveModularSubgroupViaRightAction" Arg="s, t" />
   <Returns>A projective modular subgroup.</Returns>
   <Description>
     Constructs a <C>ProjectiveModularSubgroup</C> object corresponding to the
@@ -33,7 +33,7 @@ Nevertheless we list them here.
     to make the internal interaction with extisting &GAP; methods easier.
 
 <Example><![CDATA[
-gap> G := ProjectiveModularSubgroup(
+gap> G := ProjectiveModularSubgroupViaRightAction(
 > (1,2)(3,4)(5,6)(7,8)(9,10),
 > (1,4)(2,5,9,10,8)(3,7,6));
 <projective modular subgroup of index 10>
@@ -44,27 +44,47 @@ gap> G := ProjectiveModularSubgroup(
     construct from these a <C>ModularSubgroup</C>, and then project it to
     <M>{\rm PSL}_2(&ZZ;)</M> via <C>Projection</C>.
   </Description>
-
+  <Oper Name="ProjectiveModularSubgroupViaLeftAction" Arg="s, t" />
+  <Returns>A projective modular subgroup.</Returns>
+  <Description>
+    Analogous to <Ref Attr="ProjectiveModularSubgroupViaRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
+</Section>
 
-<ManSection>
+
+<Section>
   <Heading>Getters for the coset action</Heading>
-
-  <Oper Name="SAction" Label="SActionPSL2Z" Arg="G" />
+  
+<ManSection>
+  <Heading>SAction</Heading>
+  <Oper Name="SRightAction" Label="SRightActionPSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_{\overline{S}}</M> describing the action of
-    <M>\overline{S}</M> on the cosets of <A>G</A>.
-    <Br/>
+    <M>\overline{S}</M> on the right cosets of <A>G</A>. <Br/>
   </Description>
+  <Oper Name="SLeftAction" Label="SLeftActionPSL2Z" Arg="G" />
+  <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="SRightAction" Label="SRightActionPSL2Z"/>, but with left coset actions.
+  </Description>
+</ManSection>
 
-  <Oper Name="TAction" Label="TActionPSL2Z" Arg="G" />
+<ManSection>
+  <Heading>TAction</Heading>
+  <Oper Name="TRightAction" Label="TRightActionPSL2Z" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_{\overline{T}}</M> describing the action of
-    <M>\overline{T}</M> on the cosets of <A>G</A>.
+    <M>\overline{T}</M> on the right cosets of <A>G</A>.
   </Description>
 
+  <Oper Name="TLeftAction" Label="TLeftActionPSL2Z" Arg="G" />
+  <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="TRightAction" Label="TRightActionPSL2Z"/>, but with left coset actions.
+  </Description>
 </ManSection>
 </Section>
 
@@ -111,19 +131,26 @@ gap> GeneralizedLevel(G);
 
 
 <ManSection>
+  <Heading>CosetRepresentatives</Heading>
   <Attr Name="RightCosetRepresentatives" Label="RightCosetRepresentativesPSL2Z" Arg="G" />
   <Returns>A list of words.</Returns>
   <Description>
     This function returns a list of representatives of the (right) cosets of
     <A>G</A> as words in <M>\overline{S}</M> and <M>\overline{T}</M>.
-  </Description>
-</ManSection>
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2),(2,3));
 <projective modular subgroup of index 3>
 gap> RightCosetRepresentatives(G);
 [ <identity ...>, S, S*T ]
 ]]></Example>
+  </Description>
+  <Attr Name="LeftCosetRepresentatives" Label="LeftCosetRepresentativesPSL2Z" Arg="G" />
+  <Returns>A list of words.</Returns>
+  <Description>
+    Analogous to <Ref Attr="LeftCosetRepresentatives" Label="LeftCosetRepresentativesPSL2Z"/>,
+    but with left coset actions.
+  </Description>
+</ManSection>
 
 <ManSection>
   <Attr Name="WordGeneratorsOfGroup" Label="GeneratorsOfGroupPSL2Z" Arg="G" />
