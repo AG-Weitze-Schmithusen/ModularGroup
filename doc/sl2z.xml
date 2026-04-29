@@ -71,6 +71,9 @@ gap> G := ModularSubgroupViaRightAction(
   
     <Oper Name="ModularSubgroupViaLeftAction" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
+  <Description>
+    Analogous to <Ref Attr="ModularSubgroupViaRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
@@ -78,12 +81,12 @@ gap> G := ModularSubgroupViaRightAction(
   <Oper Name="ModularSubgroupSTViaRightAction" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
-    Synonymous for <C>ModularSubgroupViaRightAction</C> (see above).
+    Synonymous for <Ref Attr="ModularSubgroupViaRightAction"/> (see above).
   </Description>
   <Oper Name="ModularSubgroupSTViaLeftAction" Arg="s, t" />
   <Returns>A modular subgroup.</Returns>
   <Description>
-    Synonymous for <C>ModularSubgroupViaLeftAction</C> (see above).
+    Synonymous for <Ref Attr="ModularSubgroupViaLeftAction"/> (see above).
   </Description>
 </ManSection>
   
@@ -137,11 +140,14 @@ gap> G := ModularSubgroupRTViaRightAction(
   </Description>
   <Oper Name="ModularSubgroupRTViaLeftAction" Arg="r, t" />
   <Returns>A modular subgroup.</Returns>
+  <Description>
+    Analogous to <Ref Attr="ModularSubgroupRTViaRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
   <Heading>ModularSubgroupSJ</Heading>
-  <Oper Name="ModularSubgrouSJViaRightAction" Arg="s, j" />
+  <Oper Name="ModularSubgroupSJViaRightAction" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
   <Description>
     Constructs a <C>ModularSubgroup</C> object corresponding to the finite-index
@@ -189,6 +195,9 @@ gap> G := ModularSubgroupSJViaRightAction(
   </Description>
   <Oper Name="ModularSubgrouSJViaLeftAction" Arg="s, j" />
   <Returns>A modular subgroup.</Returns>
+  <Description>
+    Analogous to <Ref Attr="ModularSubgroupSJViaRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
@@ -219,54 +228,62 @@ gap> G := ModularSubgroup([
 
 <ManSection>
   <Heading>SAction</Heading>
-  <Oper Name="SAction" Arg="G" />
   <Oper Name="SRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_S</M> describing the action of the matrix
-    <M>S</M> on the cosets of <A>G</A>.
+    <M>S</M> on the right cosets of <A>G</A>.
   </Description>
   <Oper Name="SLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="SRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
   <Heading>TAction</Heading>
-  <Oper Name="TAction" Arg="G" />
   <Oper Name="TRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_T</M> describing the action of the matrix
-    <M>T</M> on the cosets of <A>G</A>.
+    <M>T</M> on the right cosets of <A>G</A>.
   </Description>
   <Oper Name="TLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="TRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
   <Heading>RAction</Heading>
-  <Oper Name="RAction" Arg="G" />
   <Oper Name="RRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_R</M> describing the action of the matrix
-    <M>R</M> on the cosets of <A>G</A>.
+    <M>R</M> on the right cosets of <A>G</A>.
   </Description>
   <Oper Name="RLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="RRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
   <Heading>JAction</Heading>
-  <Oper Name="JAction" Arg="G" />
   <Oper Name="JRightAction" Arg="G" />
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_J</M> describing the action of the matrix
-    <M>J</M> on the cosets of <A>G</A>.
+    <M>J</M> on the right cosets of <A>G</A>.
   </Description>
   <Oper Name="JLeftAction" Arg="G" />
   <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="JRightAction"/>, but with left coset actions.
+  </Description>
 </ManSection>
   
 <ManSection>
@@ -275,10 +292,13 @@ gap> G := ModularSubgroup([
   <Returns>A permutation.</Returns>
   <Description>
     Returns the permutation <M>\sigma_A</M> describing the action of the matrix
-    <M>A \in \mathrm{SL}_2(&ZZ;)</M> on the cosets of <A>G</A>.
+    <M>A \in \mathrm{SL}_2(&ZZ;)</M> on the right cosets of <A>G</A>.
   </Description>
   <Oper Name="CosetLeftActionOf" Arg="A, G" />
   <Returns>A permutation.</Returns>
+  <Description>
+    Analogous to <Ref Attr="CosetRightActionOf"/>, but with left coset actions.
+  </Description>
 </ManSection>
 </Section>
 
@@ -321,20 +341,19 @@ gap> GeneralizedLevel(G);
 ]]></Example>
 
 <ManSection>
+  <Heading>CosetRepresentatives</Heading>
   <Attr Name="RightCosetRepresentatives" Label="RightCosetRepresentativesSL2Z" Arg="G" />
   <Returns>A list of words.</Returns>
   <Description>
     This function returns a list of representatives of the (right) cosets of
     <A>G</A> as words in <M>S</M> and <M>T</M>.
-  </Description>
-</ManSection>
 <Example><![CDATA[
 gap> G := ModularSubgroup((1,2),(2,3));
 <modular subgroup of index 3>
 gap> RightCosetRepresentatives(G);
 [ <identity ...>, S, S*T ]
 ]]></Example>
-<ManSection>
+</Description>
   <Attr Name="LeftCosetRepresentatives" Label="LeftCosetRepresentativesSL2Z" Arg="G" />
   <Returns>A list of words.</Returns>
   <Description>
@@ -762,14 +781,13 @@ true
 ]]></Example>
 
 <ManSection>
+  <Heading>CosetActionFromGenerators</Heading>
   <Oper Name="RightCosetActionFromGenerators" Arg="gens" />
   <Returns>A tuple of permutations.</Returns>
   <Description>
-    Takes a list of generator matrices and calculates the coset graph (as two
+    Takes a list of generator matrices and calculates the right coset graph (as two
     permutations <M>\sigma_S</M> and <M>\sigma_T</M>) of the generated subgroup
     of <M>\mathrm{SL}_2(&ZZ;)</M>.
-  </Description>
-</ManSection>
 <Example><![CDATA[
 gap> RightCosetActionFromGenerators([
 > [[1,2],[0,1]],
@@ -777,9 +795,12 @@ gap> RightCosetActionFromGenerators([
 > ]);
 [ (1,2,5,3)(4,8,10,9)(6,11,7,12), (1,4)(2,6)(3,7)(5,10)(8,12,9,11) ]
 ]]></Example>
-<ManSection>
+  </Description>
   <Oper Name="LeftCosetActionFromGenerators" Arg="gens" />
   <Returns>A tuple of permutations.</Returns>
+  <Description>
+    Analogous to <Ref Attr="RightCosetActionFromGenerators"/>, but with left coset actions.
+  </Description>
 </ManSection>
 
 <ManSection>
