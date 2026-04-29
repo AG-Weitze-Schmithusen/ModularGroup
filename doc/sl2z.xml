@@ -311,10 +311,7 @@ gap> G := ModularSubgroup([
   <Description>
     For a given modular subgroup <A>G</A> this method returns its index in
     <M>{\rm SL}_2(&ZZ;)</M>. As <A>G</A> is internally stored as permutations
-    <M>(s,t)</M> this is just
-    <Verb>
-      LargestMovedPoint(s,t)
-    </Verb>
+    <M>(s,t)</M> this is just <C>LargestMovedPoint([s,t], 1)</C>
     (or <M>1</M> if the permutations are trivial).
   </Description>
 </ManSection>
