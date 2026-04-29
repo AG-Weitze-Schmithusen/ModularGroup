@@ -826,7 +826,7 @@ InstallMethod(Projectivization, [IsModularSubgroup], function(G)
   return ProjectiveModularSubgroup(q, p);
 end);
 
-InstallMethod(Conjugate, [IsModularSubgroup, IsMatrix], function(G, A)
+InstallMethod(ConjugateGroup, [IsModularSubgroup, IsMatrix], function(G, A)
   local a, s, t;
   a := CosetActionOf(A, G);
   s := SAction(G);

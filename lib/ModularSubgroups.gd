@@ -66,5 +66,4 @@ DeclareOperation("CosetRepresentativeOfCusp", [IsRat, IsModularSubgroup]);
 DeclareOperation("IndexModN", [IsModularSubgroup, IsPosInt]);
 DeclareOperation("Deficiency", [IsModularSubgroup, IsPosInt]);
 DeclareOperation("Projectivization", [IsModularSubgroup]);
-DeclareOperation("Conjugate", [IsModularSubgroup, IsMatrix]);
 DeclareOperation("MoebiusTransformation", [IsMatrix, IsRat]);

@@ -445,7 +445,7 @@ InstallMethod(Deficiency, [IsProjectiveModularSubgroup, IsPosInt], function(G, N
   return Index(G) / IndexModN(G, N);
 end);
 
-InstallMethod(Conjugate, [IsProjectiveModularSubgroup, IsMatrix], function(G, A)
+InstallMethod(ConjugateGroup, [IsProjectiveModularSubgroup, IsMatrix], function(G, A)
   local a, s, t;
   a := CosetActionOf(A, G);
   s := SAction(G);
