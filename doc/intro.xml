@@ -19,7 +19,11 @@ subgroups of <M>{\rm SL}_2(&ZZ;)</M>.
 A convenient way to represent finite-index subgroups of <M>{\rm SL}_2(&ZZ;)</M> is by
 specifying the action of generator matrices of <M>{\rm SL}_2(&ZZ;)</M> on the right
 cosets by right multiplication. For example, one could choose the generators
-<Alt Only="LaTeX">
+<Alt Only="Text, HTML noMathJax"><Verb><![CDATA[
+                 [ 0 -1 ]            [ 1  1 ]
+             S = [ 1  0 ],       T = [ 0  1 ]
+]]></Verb></Alt>
+<Alt Not="Text, HTML noMathJax">
   <![CDATA[
   \[
         S =
@@ -40,10 +44,6 @@ cosets by right multiplication. For example, one could choose the generators
   \]
   ]]>
 </Alt>
-<Alt Only="Text,HTML"><Verb><![CDATA[
-                 [ 0 -1 ]            [ 1  1 ]
-             S = [ 1  0 ],       T = [ 0  1 ]
-]]></Verb></Alt>
 and represent a subgroup as a tuple of transitive permutations
 <M>(\sigma_S,\sigma_T)</M> describing the action of <M>S</M> and <M>T</M>.
 This is exactly the way this package internally treats such subgroups. We use

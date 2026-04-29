@@ -28,31 +28,31 @@ generators.
     <A>t</A>. <Br/>
     This constructor tests if the given permutations actually describe the
     coset action of the matrices
-    <Alt Only="LaTeX">
-      <![CDATA[
-      \[
-            S =
-            \left(
-               \begin{array}{rr}
-                  0 & -1 \\
-                  1 & 0
-               \end{array}
-            \right)
-            ,\quad
-            T =
-            \left(
-               \begin{array}{rr}
-                  1 & 1 \\
-                  0 & 1
-               \end{array}
-            \right)
-      \]
-      ]]>
-    </Alt>
-    <Alt Only="Text,HTML"><Verb><![CDATA[
-                     [ 0 -1 ]            [ 1  1 ]
-                 S = [ 1  0 ],       T = [ 0  1 ]
-    ]]></Verb></Alt>
+    <Alt Only="Text, HTML noMathJax"><Verb><![CDATA[
+                 [ 0 -1 ]            [ 1  1 ]
+             S = [ 1  0 ],       T = [ 0  1 ]
+]]></Verb></Alt>
+<Alt Not="Text, HTML noMathJax">
+  <![CDATA[
+  \[
+        S =
+        \left(
+           \begin{array}{rr}
+              0 & -1 \\
+              1 & 0
+           \end{array}
+        \right)
+        \quad
+        T =
+        \left(
+           \begin{array}{rr}
+              1 & 1 \\
+              0 & 1
+           \end{array}
+        \right)
+  \]
+  ]]>
+</Alt>
     by checking that they act transitively and satisfy the relations
     <Display>s^4 = (s^3 t)^3 = s^2 t s^{-2} t^{-1} = 1</Display>
 
@@ -98,7 +98,11 @@ gap> G := ModularSubgroupViaRightAction(
     Constructs a <C>ModularSubgroup</C> object corresponding to the finite-index
     subgroup of <M>{\rm SL}_2(&ZZ;)</M> determined by the permutations <A>r</A> and
     <A>t</A> which describe the action of the matrices
-    <Alt Only="LaTeX">
+    <Alt Only="Text, HTML noMathJax"><Verb><![CDATA[
+                     [ 1  0 ]           [ 1  1 ]
+                 R = [ 1  1 ]       T = [ 0  1 ]
+]]></Verb></Alt>
+<Alt Not="Text, HTML noMathJax">
       <![CDATA[
       \[
             R =
@@ -118,11 +122,7 @@ gap> G := ModularSubgroupViaRightAction(
             \right)
       \]
       ]]>
-    </Alt>
-    <Alt Only="Text,HTML"><Verb><![CDATA[
-                     [ 1  0 ]           [ 1  1 ]
-                 R = [ 1  1 ]       T = [ 0  1 ]
-    ]]></Verb></Alt>
+</Alt>
     on the right cosets. <Br/>
     A check is performed if the permutations actually describe such an action
     on the cosets of some subgroup. <Br/>
@@ -153,7 +153,7 @@ gap> G := ModularSubgroupRTViaRightAction(
     Constructs a <C>ModularSubgroup</C> object corresponding to the finite-index
     subgroup of <M>{\rm SL}_2(&ZZ;)</M> determined by the permutations <A>s</A> and
     <A>j</A> which describe the action of the matrices
-    <Alt Only="LaTeX">
+    <Alt Not="Text, HTML noMathJax">
       <![CDATA[
       \[
             S =
@@ -174,7 +174,7 @@ gap> G := ModularSubgroupRTViaRightAction(
       \]
       ]]>
     </Alt>
-    <Alt Only="Text,HTML"><Verb><![CDATA[
+    <Alt Only="Text, HTML noMathJax"><Verb><![CDATA[
                      [ 0 -1 ]           [  0  1 ]
                  S = [ 1  0 ]       J = [ -1  1 ]
     ]]></Verb></Alt>
