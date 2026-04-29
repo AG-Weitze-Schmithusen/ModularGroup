@@ -548,7 +548,7 @@ gap> Deficiency(G, GeneralizedLevel(G));
 ]]></Example>
 
 <ManSection>
-  <Oper Name="Projection" Arg="G" />
+  <Oper Name="Projectivization" Arg="G" />
   <Returns>A projective modular subgroup.</Returns>
   <Description>
     For a given modular subgroup <A>G</A> this function calculates its image
@@ -561,7 +561,7 @@ gap> G := ModularSubgroup([
 > [[1,0],[2,1]]
 > ]);
 <modular subgroup of index 12>
-gap> Projection(G);
+gap> Projectivization(G);
 <projective modular subgroup of index 6>
 ]]></Example>
 

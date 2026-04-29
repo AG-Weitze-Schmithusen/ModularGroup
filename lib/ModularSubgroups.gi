@@ -679,17 +679,17 @@ InstallMethod(\=, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgrou
 end);
 
 InstallMethod(CuspWidth, [IsRat, IsModularSubgroup], function(c, G)
-  return CuspWidth(c, Projection(G));
+  return CuspWidth(c, Projectivization(G));
 end);
 InstallOtherMethod(CuspWidth, [IsInfinity, IsModularSubgroup], function(c, G)
-  return CuspWidth(c, Projection(G));
+  return CuspWidth(c, Projectivization(G));
 end);
 
 InstallMethod(CuspsEquivalent, [IsRat, IsRat, IsModularSubgroup], function(c1, c2, G)
-  return CuspsEquivalent(c1, c2, Projection(G));
+  return CuspsEquivalent(c1, c2, Projectivization(G));
 end);
 InstallOtherMethod(CuspsEquivalent, [IsRat, IsInfinity, IsModularSubgroup], function(c1, c2, G)
-  return CuspsEquivalent(c1, c2, Projection(G));
+  return CuspsEquivalent(c1, c2, Projectivization(G));
 end);
 InstallOtherMethod(CuspsEquivalent, [IsInfinity, IsRat, IsModularSubgroup], function(c1, c2, G)
   return CuspsEquivalent(c2, c1, G);
@@ -699,7 +699,7 @@ InstallOtherMethod(CuspsEquivalent, [IsInfinity, IsInfinity, IsModularSubgroup],
 end);
 
 InstallMethod(Cusps, [IsModularSubgroup], function(G)
-  return Cusps(Projection(G));
+  return Cusps(Projectivization(G));
 end);
 
 InstallMethod(CosetRepresentativeOfCusp, [IsRat, IsModularSubgroup], function(c, G)
@@ -784,7 +784,7 @@ InstallMethod(Deficiency, [IsModularSubgroup, IsPosInt], function(G, N)
   return Index(G) / IndexModN(G, N);
 end);
 
-InstallMethod(Projection, [IsModularSubgroup], function(G)
+InstallMethod(Projectivization, [IsModularSubgroup], function(G)
   local s, t, i, ind, orbits, plist, p, k, qlist, q;
   s := SAction(G);
   t := TAction(G);
@@ -884,7 +884,7 @@ InstallMethod(AssociatedCharacterTable, [IsModularSubgroup], function(G)
 end);
 
 InstallMethod(Genus, [IsModularSubgroup], function(G)
-  return Genus(Projection(G));
+  return Genus(Projectivization(G));
 end);
 
 InstallMethod(PrintObj, "for modular subgroups", [IsModularSubgroup], function(G)

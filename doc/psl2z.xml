@@ -42,7 +42,7 @@ gap> G := ProjectiveModularSubgroupViaRightAction(
     If you want to construct a <C>ProjectiveModularSubgroup</C> from a list of
     generators, you can lift each generator to a matrix in <M>{\rm SL}_2(&ZZ;)</M>,
     construct from these a <C>ModularSubgroup</C>, and then project it to
-    <M>{\rm PSL}_2(&ZZ;)</M> via <C>Projection</C>.
+    <M>{\rm PSL}_2(&ZZ;)</M> via <C>Projectivization</C>.
   </Description>
   <Oper Name="ProjectiveModularSubgroupViaLeftAction" Arg="s, t" />
   <Returns>A projective modular subgroup.</Returns>

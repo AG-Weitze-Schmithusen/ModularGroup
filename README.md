@@ -45,7 +45,7 @@ G := ProjectiveModularSubgroup(s,t);
 Or they can be derived from subgroups in $\mathrm{SL}_2(\mathbb{Z})$ by projecting them to $\mathrm{PSL}_2(\mathbb{Z})$ via
 
 ```GAP
-H := Projection(G);
+H := Projectivization(G);
 ```
 
 Having constructed a (projective) modular subgroup, you can apply the various operations this package implements (such as testing if the given group is a congruence subgroup via `IsCongruence(G)`). For more details and a full list of the provided operations, please refer to the documentation. One explicit example is given below:
