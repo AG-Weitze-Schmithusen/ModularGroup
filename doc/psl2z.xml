@@ -368,10 +368,10 @@ gap> Deficiency(G, GeneralizedLevel(G));
 
 
 <ManSection>
-  <Oper Name="Conjugate" Label="ConjugatePSL2Z" Arg="G, A" />
+  <Oper Name="ConjugateGroup" Label="ConjugateGroupPSL2Z" Arg="G, A" />
   <Returns>A ProjectiveModularSubgroup.</Returns>
   <Description>
-    Conjugates the group <A>G</A> by (the redidue class in <M>{\rm PSL}_2(&ZZ;)</M> of)
+    Conjugates the group <A>G</A> by (the residue class in <M>{\rm PSL}_2(&ZZ;)</M> of)
     <A>A</A> and returns the group <M>A^{-1}*G*A</M>.
   </Description>
 </ManSection>
