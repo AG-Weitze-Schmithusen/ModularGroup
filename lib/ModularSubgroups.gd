@@ -67,3 +67,4 @@ DeclareOperation("IndexModN", [IsModularSubgroup, IsPosInt]);
 DeclareOperation("Deficiency", [IsModularSubgroup, IsPosInt]);
 DeclareOperation("Projectivization", [IsModularSubgroup]);
 DeclareOperation("MoebiusTransformation", [IsMatrix, IsRat]);
+DeclareOperation("CuspGenerators", [IsModularSubgroup]);

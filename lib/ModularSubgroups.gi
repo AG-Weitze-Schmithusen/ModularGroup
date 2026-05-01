@@ -731,6 +731,35 @@ InstallOtherMethod(CosetRepresentativeOfCusp, [IsInfinity, IsModularSubgroup], f
   return One(FreeGroup(["S", "T"]));
 end);
 
+InstallMethod(CuspGenerators, [IsModularSubgroup], function(G)
+  local t, reps, cycles, relevant_reps, d, MatS, MatT, S, T, F2, gens, A, k, i, r;
+
+  t := TAction(G);
+  reps := RightCosetRepresentatives(G);
+  cycles := Orbits(Group(t), [1..Index(G)]);
+  relevant_reps := [];
+  for d in cycles do
+    Add(relevant_reps, reps[d[1]]);
+  od;
+
+  MatS := [[0,-1],[1,0]];
+  MatT := [[1,1],[0,1]];
+  F2 := FreeGroup("S", "T");
+  S := F2.1;
+  T := F2.2;
+  gens := [];
+
+  Apply(relevant_reps, r -> ObjByExtRep(FamilyObj(S), ExtRepOfObj(r)));
+
+  for i in [1..Length(relevant_reps)] do
+    r := relevant_reps[i];
+    A := MappedWord(r, [S, T], [MatS, MatT]);
+    k := Length(cycles[i]);
+    Add(gens, A * MatT^k * A^-1);
+  od;
+  return gens;
+end);
+
 InstallMethod(MoebiusTransformation, [IsMatrix, IsRat], function(A, r)
   local a, b, c, d, p, q;
   if not A in SL(2,Integers) then
