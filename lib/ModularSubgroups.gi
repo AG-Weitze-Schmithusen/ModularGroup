@@ -5,7 +5,7 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
     Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
   fi;
 
-  type := NewType(FamilyObj(One(SL(2,Integers))),
+  type := NewType(FamilyObj(SL(2,Integers)),
     IsObject and
     IsMatrixGroup and
     IsAttributeStoringRep and
@@ -43,7 +43,7 @@ InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
     Error("<s> and <t> do not describe the action of the generators S and T on the cosets of a finite-index subgroup of SL(2,Z)");
   fi;
 
-  type := NewType(FamilyObj(One(SL(2,Integers))),
+  type := NewType(FamilyObj(SL(2,Integers)),
     IsObject and
     IsMatrixGroup and
     IsAttributeStoringRep and
@@ -899,3 +899,5 @@ end);
 InstallMethod(ViewObj, "for modular subgroups", [IsModularSubgroup], function(G)
   Print("<modular subgroup of index ", Index(G),">");
 end);
+
+InstallOtherMethod(DimensionOfMatrixGroup, [ IsModularSubgroup ], G -> 2 );
