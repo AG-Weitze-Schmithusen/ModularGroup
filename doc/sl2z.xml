@@ -570,7 +570,8 @@ gap> Projectivization(G);
   <Oper Name="ConjugateGroup" Label="ConjugateGroupSL2Z" Arg="G, A" />
   <Returns>A ModularSubgroup.</Returns>
   <Description>
-    Conjugates the group <A>G</A> by <A>A</A> and returns the group <M>A^{-1}*G*A</M>.
+    Conjugates the group <A>G</A> by the <M>{\rm SL}_2(&ZZ;)</M> matrix <A>A</A>
+    and returns the group <M>A^{-1}*G*A</M>.
   </Description>
 </ManSection>
 
