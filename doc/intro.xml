@@ -24,8 +24,8 @@ cosets by right multiplication. For example, one could choose the generators
              S = [ 1  0 ],       T = [ 0  1 ]
 ]]></Verb></Alt>
 <Alt Not="Text, HTML noMathJax">
+<Display>
   <![CDATA[
-  \[
         S =
         \left(
            \begin{array}{rr}
@@ -41,8 +41,8 @@ cosets by right multiplication. For example, one could choose the generators
               0 & 1
            \end{array}
         \right)
-  \]
   ]]>
+</Display>
 </Alt>
 and represent a subgroup as a tuple of transitive permutations
 <M>(\sigma_S,\sigma_T)</M> describing the action of <M>S</M> and <M>T</M>.
