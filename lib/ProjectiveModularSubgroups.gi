@@ -7,7 +7,6 @@ InstallMethod(ProjectiveModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
 
   type := NewType(FamilyObj(One(SL(2,Integers))),
     IsObject and
-    #IsMatrixGroup and
     IsAttributeStoringRep and
     IsComponentObjectRep and
     IsFinitelyGeneratedGroup and
@@ -95,7 +94,7 @@ InstallMethod(CosetLeftActionOf, [IsMatrix, IsProjectiveModularSubgroup], functi
   return CosetActionOf(A, G)^-1;
 end);
 
-InstallMethod(IsElementOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
+InstallMethod(IsMatrixElementOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, G)
   local p;
 
   if not A in SL(2,Integers) then
@@ -105,11 +104,11 @@ InstallMethod(IsElementOf, [IsMatrix, IsProjectiveModularSubgroup], function(A, 
   p := CosetActionOf(A, G);
   return 1^p = 1;
 end);
-InstallMethod(\in, "for a finite-index subgroup of PSL(2,Z)", [IsMatrix, IsProjectiveModularSubgroup], 10000, function(A, G)
-  return IsElementOf(A, G);
+InstallMethod(\in, "for a finite-index subgroup of PSL(2,Z)", [IsElementOfFpGroup, IsProjectiveModularSubgroup], 10000, function(w, G)
+  return IsElementOf(w, G);
 end);
 
-InstallMethod(IsWordElementOf, [IsElementOfFpGroup, IsProjectiveModularSubgroup], function(w, G)
+InstallMethod(IsElementOf, [IsElementOfFpGroup, IsProjectiveModularSubgroup], function(w, G)
   local F2, w2, p;
    F2 := FreeGroup(2);
    w2 := ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w));
@@ -128,7 +127,7 @@ end);
 InstallMethod(IsSubset, "for two finite-index subgroups of PSL(2,Z)", [IsProjectiveModularSubgroup, IsProjectiveModularSubgroup], function(H, G)
   local gens, g, F2, MatS, MatT;
   if Index(H) > Index(G) then return false; fi;
-  gens := ShallowCopy(WordGeneratorsOfGroup(H));
+  gens := ShallowCopy(GeneratorsOfGroup(H));
   F2 := FreeGroup("S", "T");
   MatS := [[0,-1],[1,0]];
   MatT := [[1,1], [0,1]];
@@ -218,7 +217,7 @@ InstallMethod(LeftCosetRepresentatives, [IsProjectiveModularSubgroup], function(
   return List(RightCosetRepresentatives(G), Inverse);
 end);
 
-InstallMethod(WordGeneratorsOfGroup, [IsProjectiveModularSubgroup], function(G)
+InstallOtherMethod(GeneratorsOfGroup, [IsProjectiveModularSubgroup], function(G)
   local s, t, F2, S, T, PSL2Z, coset_table, H, index;
 
   s := SAction(G);
@@ -421,7 +420,7 @@ end);
 
 InstallMethod(LiftToSL2ZOdd, [IsProjectiveModularSubgroup], function(G)
   local gens, F2, S, T;
-  gens := ShallowCopy(WordGeneratorsOfGroup(G));
+  gens := ShallowCopy(GeneratorsOfGroup(G));
   F2 := FreeGroup("S", "T");
   S := [[0,-1],[1,0]];
   T := [[1,1],[0,1]];
