@@ -431,7 +431,7 @@ CharacterTable( <permutation group of size 3456 with 2 generators> )
 
 
 <ManSection>
-  <Oper Name="IsElementOf" Label="IsElementOfPSL2Z" Arg="A, G" />
+  <Oper Name="IsMatrixElementOf" Label="IsElementOfPSL2Z" Arg="A, G" />
   <Returns>True or false.</Returns>
   <Description>
     This function checks if the image of a given matrix <A>A</A> in <M>{\rm PSL}_2(&ZZ;)</M>
@@ -441,9 +441,9 @@ CharacterTable( <permutation group of size 3456 with 2 generators> )
 <Example><![CDATA[
 gap> G := ProjectiveModularSubgroup((1,2),(2,3));
 <projective modular subgroup of index 3>
-gap> IsElementOf([[1,1],[0,1]], G);
+gap> IsMatrixElementOf([[1,1],[0,1]], G);
 true
-gap> IsElementOf([[0,-1],[1,0]], G);
+gap> IsMatrixElementOf([[0,-1],[1,0]], G);
 false
 ]]></Example>
 
@@ -465,7 +465,7 @@ true
 
 
 <ManSection>
-  <Oper Name="IsWordElementOf" Label="IsWordElementOfPSL2Z" Arg="w, G" />
+  <Oper Name="IsElementOf" Label="IsWordElementOfPSL2Z" Arg="w, G" />
   <Returns>True or false.</Returns>
   <Description>
     This function checks if a given word <A>w</A> in the generators <A>S</A> and <A>T</A>
@@ -487,7 +487,7 @@ gap> S := GeneratorsOfGroup(PSL2Z)[1];
 S
 gap> T := GeneratorsOfGroup(PSL2Z)[2];
 T
-gap> IsWordElementOf(S^2 * T, G);
+gap> IsElementOf(S^2 * T, G);
 true
 ]]></Example>
 

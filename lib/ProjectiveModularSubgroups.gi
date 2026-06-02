@@ -518,7 +518,7 @@ InstallMethod(Genus, [IsProjectiveModularSubgroup], function(G)
     for j in [1..t] do
       if glued[j] then continue; fi;
       r2 := reps[j];
-      if IsElementOf(r1*S*r2^-1, G) then
+      if IsMatrixElementOf(r1*S*r2^-1, G) then
         glued[j] := true;
         if i = j then c := c+1; fi;
         break;
