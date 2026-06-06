@@ -33,6 +33,26 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
   return G;
 end);
 
+InstallMethod(ModularSubgroupNC, [IsPerm, IsPerm], function(sp, tp)
+  local G, type;
+
+  type := NewType(FamilyObj(SL(2,Integers)),
+    IsObject and
+    IsMatrixGroup and
+    IsAttributeStoringRep and
+    IsComponentObjectRep and
+    IsFinitelyGeneratedGroup and
+    IsDefaultModularSubgroup);
+
+  G := Objectify(type, rec(
+    s := sp,
+    t := tp,
+    r := sp^-1*tp^-1*sp,
+    j := sp^-1*tp^-1
+  ));
+  return G;
+end);
+
 #same as ModularSubgroup constructor, but additionally returns how the permutations sp and tp were
 #rewritten in the standardization (i.e. returns a permutation pi such that new_sp = sp^pi and
 #new_tp = tp^pi). Currently for internal use in VeechGroupAndOrbit calculation in origami only.

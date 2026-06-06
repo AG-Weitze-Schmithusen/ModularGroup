@@ -24,6 +24,7 @@ DeclareOperation("DefinesCosetActionRT", [IsPerm, IsPerm]);
 DeclareOperation("DefinesCosetActionSJ", [IsPerm, IsPerm]);
 DeclareOperation("ModularSubgroup", [IsPerm, IsPerm]);
 DeclareOperation("ModularSubgroupNonStandard", [IsPerm, IsPerm]);
+DeclareOperation("ModularSubgroupNC", [IsPerm], [IsPerm]);
 DeclareOperation("ModularSubgroupViaLeftAction", [IsPerm, IsPerm]);
 DeclareOperation("ModularSubgroupViaRightAction", [IsPerm, IsPerm]);
 DeclareOperation("ModularSubgroupST", [IsPerm, IsPerm]);
