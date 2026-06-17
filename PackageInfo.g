@@ -8,8 +8,8 @@ SetPackageInfo( rec(
 
 PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
-Version := "2.0.2",
-Date := "04/05/2026", ## dd/mm/yyyy
+Version := "2.0.3",
+Date := "17/06/2026", ## dd/mm/yyyy
 License := "GPL-3.0-or-later",
 
 PackageWWWHome :=
@@ -65,7 +65,7 @@ rec(
 		LastName      := "Wagmann",
 		FirstNames    := "Hannah",
 		IsAuthor      := true,
-		IsMaintainer  := true,
+		IsMaintainer  := false,
 		Email         := "wagmann@math.uni-sb.de",
 		WWWHome       := "https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen/team/hannah-wagmann.html",
 		PostalAddress := Concatenation( [
