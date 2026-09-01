@@ -8,8 +8,8 @@ SetPackageInfo( rec(
 
 PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
-Version := "2.0.3",
-Date := "17/06/2026", ## dd/mm/yyyy
+Version := "2.0.4",
+Date := "01/09/2026", ## dd/mm/yyyy
 License := "GPL-3.0-or-later",
 
 PackageWWWHome :=
@@ -35,15 +35,15 @@ rec(
 	FirstNames    := "Sebastian",
 	IsAuthor      := true,
 	IsMaintainer  := true,
-	Email         := "seen00001@stud.uni-saarland.de",
-	WWWHome       := "https://www.uni-saarland.de/lehrstuhl/weitze-schmithuesen.html",
+	Email         := "sebastian.engelhardt@tugraz.at",
+	WWWHome       := "https://www.geometrie.tugraz.at/engelhardt",
 	PostalAddress := Concatenation( [
-									 	"AG Weitze-Schmithüsen\n",
-									 	"FR 6.1 Mathematik\n",
-									 	"Universität des Saarlandes\n",
-									 	"D-66041 Saarbrücken" ] ),
-	Place         := "Saarbrücken",
-	Institution   := "Universität des Saarlandes"
+									 	"Institute of Geometry, TU Graz\n",
+									 	"Kopernikusgasse 24\n",
+									 	"8010 Graz\n",
+                    "Austria \n" ] ),
+	Place         := "Graz",
+	Institution   := "Technische Universität Graz"
 ),
   rec(
     LastName      := "Junk",
