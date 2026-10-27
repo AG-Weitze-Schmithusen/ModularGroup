@@ -9,7 +9,7 @@ SetPackageInfo( rec(
 PackageName := "ModularGroup",
 Subtitle := "Finite-index subgroups of (P)SL(2,Integers)",
 Version := "2.0.4",
-Date := "01/09/2026", ## dd/mm/yyyy
+Date := "27/10/2026", ## dd/mm/yyyy
 License := "GPL-3.0-or-later",
 
 PackageWWWHome :=
