@@ -410,7 +410,7 @@ InstallMethod(CosetRepresentativeOfCusp, [IsRat, IsProjectiveModularSubgroup], f
     fi;
   od;
 end);
-InstallOtherMethod(CosetRepresentativeOfCusp, [IsInfinity, IsModularSubgroup], function(c, G)
+InstallOtherMethod(CosetRepresentativeOfCusp, [IsInfinity, IsProjectiveModularSubgroup], function(c, G)
   return One(FreeGroup(["S", "T"]));
 end);
 
@@ -486,7 +486,7 @@ InstallMethod(QuotientByNormalCore, [IsProjectiveModularSubgroup], function(G)
   F2 := FreeGroup("S", "T");
   S := F2.S;
   T := F2.T;
-  PSL2Z := F2 / ParseRelators([S,T], "S^4, (S*T)^3");
+  PSL2Z := F2 / ParseRelators([S,T], "S^2, (S*T)^3");
 
   index := Index(NC);
   coset_table := [ListPerm(s, index), ListPerm(s^-1, index), ListPerm(t, index), ListPerm(t^-1, index)];
