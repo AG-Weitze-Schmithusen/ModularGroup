@@ -13,7 +13,7 @@ $$
 
 on the right cosets.
 
-**Usage:** Copy this folder into your GAP package directory (usually something like `/opt/gap/gap4r8/pkg`) and load it via
+**Usage:** Copy this folder into your GAP package directory and load it via
 
 ```GAP
 LoadPackage("ModularGroup");
