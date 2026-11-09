@@ -502,37 +502,12 @@ InstallMethod(AssociatedCharacterTable, [IsProjectiveModularSubgroup], function(
 end);
 
 InstallMethod(Genus, [IsProjectiveModularSubgroup], function(G)
-  local reps, F2, S, T, t, e, v, glued, i, j, r1, r2, c;
-  reps := ShallowCopy(RightCosetRepresentatives(G));
-  F2 := FreeGroup(["S", "T"]);
-  S := [[0,-1], [1,0]]; T := [[1,1], [0,1]];
-  Apply(reps, w -> ObjByExtRep(FamilyObj(F2.1), ExtRepOfObj(w)));
-  Apply(reps, w -> MappedWord(w, [F2.1, F2.2], [S, T]));
-
-  t := Length(reps);
-  glued := ListWithIdenticalEntries(t, false);
-  c := 0;
-  for i in [1..t] do
-    if glued[i] then continue; fi;
-    r1 := reps[i];
-    for j in [1..t] do
-      if glued[j] then continue; fi;
-      r2 := reps[j];
-      if IsMatrixElementOf(r1*S*r2^-1, G) then
-        glued[j] := true;
-        if i = j then c := c+1; fi;
-        break;
-      fi;
-    od;
-    glued[i] := true;
-  od;
-  t := t+c;
-  e := 3*t/2;
-  v := Length(Cycles(TAction(G), [1..Index(G)])) # number of cusps
-     + Length(Cycles(TAction(G)^-1*SAction(G), [1..Index(G)])) # number of cycles in T^-1*S
-     + Length(Filtered(Cycles(SAction(G), [1..Index(G)]), l -> Length(l) = 1)); # number of singleton cycles of S
-
-  return (2-(v-e+t))/2;
+  local n, e2, e3, c;
+  n := Index(G);
+  e2 := n - NrMovedPoints(SRightAction(G)); # fixed points of s
+  e3 := n - NrMovedPoints(SRightAction(G) * TRightAction(G)); # fixed points of s*t
+  c := Length(Cycles(TRightAction(G), [1..n])); # number of cusps (or cycles of t)
+  return 1 + n/12 - e2/4 - e3/3 - c/2; # Riemann-Hurwitz formula for the covering X(Gamma) -> X(1)
 end);
 
 InstallMethod(PrintObj, "for projective modular subgroups", [IsProjectiveModularSubgroup], function(G)
