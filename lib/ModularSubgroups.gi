@@ -14,10 +14,10 @@ InstallMethod(ModularSubgroup, [IsPerm, IsPerm], function(sp, tp)
     IsDefaultModularSubgroup);
 
   index := Maximum(LargestMovedPoint([sp,tp]), 1);
-  l1 := ListPerm(sp, index);    l1[1] := l1[1];
-  l2 := ListPerm(sp^-1, index); l2[1] := l2[1];
-  l3 := ListPerm(tp, index);    l3[1] := l3[1];
-  l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
+  l1 := ListPerm(sp, index);
+  l2 := ListPerm(sp^-1, index);
+  l3 := ListPerm(tp, index);
+  l4 := ListPerm(tp^-1, index);
   tab := [l1, l2, l3, l4];
   StandardizeTable(tab);
 
@@ -52,10 +52,10 @@ InstallMethod(ModularSubgroupNonStandard, [IsPerm, IsPerm], function(sp, tp)
     IsDefaultModularSubgroup);
 
   index := Maximum(LargestMovedPoint([sp,tp]), 1);
-  l1 := ListPerm(sp, index);    l1[1] := l1[1];
-  l2 := ListPerm(sp^-1, index); l2[1] := l2[1];
-  l3 := ListPerm(tp, index);    l3[1] := l3[1];
-  l4 := ListPerm(tp^-1, index); l4[1] := l4[1];
+  l1 := ListPerm(sp, index);
+  l2 := ListPerm(sp^-1, index);
+  l3 := ListPerm(tp, index);
+  l4 := ListPerm(tp^-1, index);
   tab := [l1, l2, l3, l4];
   tab_old := StructuralCopy(tab);
   StandardizeTable(tab);
