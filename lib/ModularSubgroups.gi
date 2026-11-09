@@ -587,7 +587,6 @@ InstallMethod(CongruenceLevel, [IsModularSubgroup], function(G)
   local l, one;
   
   if not IsCongruence(G) then
-    Print("This group is not a congruence subgroup.\n");
     return fail;
   fi;
 
