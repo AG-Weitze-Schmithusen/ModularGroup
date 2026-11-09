@@ -665,9 +665,9 @@ end);
 
 InstallMethod(IsSubset, "for two finite-index subgroups of SL(2,Z)", [IsModularSubgroup, IsModularSubgroup], function(H, G)
   local gens, g;
-  gens := GeneratorsOfGroup(H);
+  gens := GeneratorsOfGroup(G);
   for g in gens do
-    if not g in G then
+    if not g in H then
       return false;
     fi;
   od;
